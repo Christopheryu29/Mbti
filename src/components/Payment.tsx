@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFlow } from "../contexts/FlowContext";
 import { ApiService } from "../services/apiService";
-import type { CompleteOrderData } from "../services/apiService";
+import type { CompleteOrderData } from "../types";
 
 const Payment: React.FC = () => {
   const navigate = useNavigate();
