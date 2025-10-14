@@ -5,7 +5,7 @@ interface UseImageUploadReturn {
   preview: string | null;
   isUploading: boolean;
   error: string | null;
-  fileInputRef: React.RefObject<HTMLInputElement>;
+  fileInputRef: React.RefObject<HTMLInputElement | null>;
   handleFileSelect: (event: React.ChangeEvent<HTMLInputElement>) => void;
   triggerFileInput: () => void;
   clearImage: () => void;

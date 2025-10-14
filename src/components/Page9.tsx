@@ -25,9 +25,9 @@ const Page9: React.FC = () => {
     }
   };
 
-  const handleBack = () => {
-    navigate("/mbti-test");
-  };
+  // const handleBack = () => {
+  //   navigate("/mbti-test");
+  // };
 
   const options = [
     "the dreamer",

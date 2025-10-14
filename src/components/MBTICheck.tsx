@@ -12,9 +12,9 @@ const MBTICheck: React.FC = () => {
     navigate("/mbti-test");
   };
 
-  const handleBack = () => {
-    navigate("/address");
-  };
+  // const handleBack = () => {
+  //   navigate("/address");
+  // };
 
   return (
     <div className="image-screen">

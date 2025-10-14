@@ -14,9 +14,9 @@ const NameInput: React.FC = () => {
     }
   };
 
-  const handleBack = () => {
-    navigate("/");
-  };
+  // const handleBack = () => {
+  //   navigate("/");
+  // };
 
   return (
     <div className="image-screen">

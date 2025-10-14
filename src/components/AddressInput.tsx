@@ -14,9 +14,9 @@ const AddressInput: React.FC = () => {
     }
   };
 
-  const handleBack = () => {
-    navigate("/phone");
-  };
+  // const handleBack = () => {
+  //   navigate("/phone");
+  // };
 
   return (
     <div className="image-screen">

@@ -55,8 +55,7 @@ const ThankYou: React.FC = () => {
                 <div className="detail-item">
                   <span>Shirt:</span>
                   <span>
-                    {userData.shirtDesign.color} {userData.shirtDesign.size} -{" "}
-                    {userData.shirtDesign.design}
+                    {userData.shirtDesign.template} - {userData.shirtDesign.position || "default position"}
                   </span>
                 </div>
               )}

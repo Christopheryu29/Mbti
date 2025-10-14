@@ -9,7 +9,7 @@ export interface UploadResult {
 export class GoogleDriveService {
   private static readonly FOLDER_ID = import.meta.env
     .VITE_GOOGLE_DRIVE_FOLDER_ID;
-  private static readonly API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
+  // private static readonly API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
 
   static async uploadImage(file: File): Promise<UploadResult> {
     try {

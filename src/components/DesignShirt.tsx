@@ -26,9 +26,9 @@ const DesignShirt: React.FC = () => {
     }
   };
 
-  const handleBack = () => {
-    navigate("/personality-result");
-  };
+  // const handleBack = () => {
+  //   navigate("/personality-result");
+  // };
 
   const handleTemplateSelect = (template: string) => {
     setSelectedTemplate(template);

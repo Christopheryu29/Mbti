@@ -14,9 +14,9 @@ const PhoneInput: React.FC = () => {
     }
   };
 
-  const handleBack = () => {
-    navigate("/name");
-  };
+  // const handleBack = () => {
+  //   navigate("/name");
+  // };
 
   return (
     <div className="image-screen">

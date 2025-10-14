@@ -1,6 +1,6 @@
 // API service for handling Google Drive and Sheets operations
 import type { CompleteOrderData, OrderResult } from "../types";
-import { handleError, logError } from "../utils/errorHandler";
+import { logError } from "../utils/errorHandler";
 import { config } from "../config/env";
 
 export class ApiService {

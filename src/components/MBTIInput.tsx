@@ -18,9 +18,9 @@ const MBTIInput: React.FC = () => {
     navigate("/mbti-test");
   };
 
-  const handleBack = () => {
-    navigate("/mbti-check");
-  };
+  // const handleBack = () => {
+  //   navigate("/mbti-check");
+  // };
 
   return (
     <div className="image-screen">
