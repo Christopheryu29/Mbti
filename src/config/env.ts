@@ -15,14 +15,28 @@ class Config {
   private config: EnvironmentConfig;
 
   private constructor() {
+    // Auto-detect API URL: use environment variable or auto-detect based on domain
+    const getApiBaseUrl = () => {
+      if (import.meta.env.VITE_API_BASE_URL) {
+        return import.meta.env.VITE_API_BASE_URL;
+      }
+
+      // In production (on Vercel), use the same domain with /api
+      if (import.meta.env.PROD) {
+        return `${window.location.origin}/api`;
+      }
+
+      // In development, use localhost
+      return "http://localhost:3001/api";
+    };
+
     this.config = {
       googleDriveFolderId: import.meta.env.VITE_GOOGLE_DRIVE_FOLDER_ID || "",
       googleSheetsId:
         import.meta.env.VITE_GOOGLE_SHEETS_ID ||
         "1Zvq4LzomnEwRCS_qOyMPGhzeKglHTXAWwmdJoFdNzqg",
       googleApiKey: import.meta.env.VITE_GOOGLE_API_KEY || "",
-      apiBaseUrl:
-        import.meta.env.VITE_API_BASE_URL || "http://localhost:3001/api",
+      apiBaseUrl: getApiBaseUrl(),
       isDevelopment: import.meta.env.DEV,
       isProduction: import.meta.env.PROD,
     };

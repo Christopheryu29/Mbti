@@ -60,8 +60,14 @@ cloudinary.config({
 // Enable CORS for your React app
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "http://localhost:5173");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
+  // Handle OPTIONS preflight
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(200);
+  }
+
   next();
 });
 
@@ -104,80 +110,83 @@ app.get("/api/google-sheets/token", async (req, res) => {
 });
 
 // Endpoint to process complete order (upload image + save to sheets)
-app.post(
-  "/api/process-order",
-  upload.single("paymentImage"),
-  async (req, res) => {
-    try {
-      if (!req.file) {
-        return res.status(400).json({ error: "No file uploaded" });
-      }
+app.post("/api/process-order", async (req, res) => {
+  try {
+    console.log("Received process-order request");
+    const { name, phone, address, personalityType, template, position, paymentImage } = req.body;
 
-      const { name, phone, address, personalityType, template, position } =
-        req.body;
-
-      // Step 1: Upload image to Cloudinary
-      console.log("Uploading image to Cloudinary...");
-      const cloudinaryResponse = await cloudinary.uploader.upload(
-        req.file.path,
-        {
-          folder: "mbti-payments",
-          public_id: `payment_${Date.now()}`,
-          resource_type: "auto",
-        }
-      );
-
-      console.log(
-        "Image uploaded successfully to Cloudinary:",
-        cloudinaryResponse.public_id
-      );
-
-      // Step 2: Save data to Google Sheets (with Cloudinary link)
-      const values = [
-        [
-          name,
-          phone,
-          address,
-          personalityType,
-          template,
-          position || "",
-          cloudinaryResponse.secure_url,
-          new Date().toISOString(),
-        ],
-      ];
-
-      const sheetsResponse = await sheets.spreadsheets.values.append({
-        spreadsheetId:
-          GOOGLE_CREDENTIALS.sheets_id ||
-          "1Zvq4LzomnEwRCS_qOyMPGhzeKglHTXAWwmdJoFdNzqg",
-        range: "User Data!A:H",
-        valueInputOption: "RAW",
-        requestBody: {
-          values: values,
-        },
-      });
-
-      // Clean up uploaded file
-      fs.unlinkSync(req.file.path);
-
-      res.json({
-        success: true,
-        fileId: cloudinaryResponse.public_id,
-        webViewLink: cloudinaryResponse.secure_url,
-        rowNumber: sheetsResponse.data.updates?.updatedRows || 1,
-      });
-    } catch (error) {
-      console.error("Error processing order:", error);
-
-      // Clean up uploaded file if it exists
-      if (req.file && fs.existsSync(req.file.path)) {
-        fs.unlinkSync(req.file.path);
-      }
-
-      res.status(500).json({ error: "Failed to process order" });
+    // Validate required fields
+    if (!name || !phone || !address || !personalityType) {
+      console.error("Missing required fields:", { name: !!name, phone: !!phone, address: !!address, personalityType: !!personalityType });
+      return res.status(400).json({ error: "Missing required fields" });
     }
+
+    if (!paymentImage) {
+      console.error("No payment image provided");
+      return res.status(400).json({ error: "No payment image provided" });
+    }
+
+    // Step 1: Upload image to Cloudinary (base64 format)
+    console.log("Uploading image to Cloudinary...");
+    console.log("Cloudinary config:", {
+      cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+      api_key: process.env.CLOUDINARY_API_KEY ? "***" : "missing",
+      api_secret: process.env.CLOUDINARY_API_SECRET ? "***" : "missing",
+    });
+
+    const cloudinaryResponse = await cloudinary.uploader.upload(paymentImage, {
+      folder: "mbti-payments",
+      public_id: `payment_${Date.now()}`,
+      resource_type: "auto",
+    });
+
+    console.log("Image uploaded successfully to Cloudinary:", cloudinaryResponse.public_id);
+
+    // Step 2: Save data to Google Sheets
+    console.log("Saving to Google Sheets...");
+    const spreadsheetId = process.env.GOOGLE_SHEETS_ID || "1Zvq4LzomnEwRCS_qOyMPGhzeKglHTXAWwmdJoFdNzqg";
+    console.log("Spreadsheet ID:", spreadsheetId);
+
+    const values = [
+      [
+        name,
+        phone,
+        address,
+        personalityType,
+        template,
+        position || "",
+        cloudinaryResponse.secure_url,
+        new Date().toISOString(),
+      ],
+    ];
+
+    const sheetsResponse = await sheets.spreadsheets.values.append({
+      spreadsheetId: spreadsheetId,
+      range: "User Data!A:H",
+      valueInputOption: "RAW",
+      requestBody: {
+        values: values,
+      },
+    });
+
+    console.log("Data saved successfully to Google Sheets");
+
+    res.json({
+      success: true,
+      fileId: cloudinaryResponse.public_id,
+      webViewLink: cloudinaryResponse.secure_url,
+      rowNumber: sheetsResponse.data.updates?.updatedRows || 1,
+    });
+  } catch (error) {
+    console.error("Error processing order:");
+    console.error("Error message:", error.message);
+    console.error("Error stack:", error.stack);
+    res.status(500).json({
+      error: "Failed to process order",
+      details: error.message
+    });
   }
-);
+});
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {

@@ -50,8 +50,16 @@ const auth = new google.auth.GoogleAuth({
 const drive = google.drive({ version: "v3", auth });
 const sheets = google.sheets({ version: "v4", auth });
 
+// Handle OPTIONS requests for CORS
+app.options("*", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.sendStatus(200);
+});
+
 // Endpoint to get access token for Google Drive
-app.get("/api/google-drive/token", async (req, res) => {
+app.get("/google-drive/token", async (req, res) => {
   try {
     const authClient = await auth.getClient();
     const accessToken = await authClient.getAccessToken();
@@ -63,7 +71,7 @@ app.get("/api/google-drive/token", async (req, res) => {
 });
 
 // Endpoint to get access token for Google Sheets
-app.get("/api/google-sheets/token", async (req, res) => {
+app.get("/google-sheets/token", async (req, res) => {
   try {
     const authClient = await auth.getClient();
     const accessToken = await authClient.getAccessToken();
@@ -75,16 +83,30 @@ app.get("/api/google-sheets/token", async (req, res) => {
 });
 
 // Endpoint to process complete order (upload image + save to sheets)
-app.post("/api/process-order", async (req, res) => {
+app.post("/process-order", async (req, res) => {
   try {
+    console.log("Received process-order request");
     const { name, phone, address, personalityType, template, position, paymentImage } = req.body;
 
+    // Validate required fields
+    if (!name || !phone || !address || !personalityType) {
+      console.error("Missing required fields:", { name: !!name, phone: !!phone, address: !!address, personalityType: !!personalityType });
+      return res.status(400).json({ error: "Missing required fields" });
+    }
+
     if (!paymentImage) {
+      console.error("No payment image provided");
       return res.status(400).json({ error: "No payment image provided" });
     }
 
-    // Step 1: Upload image to Cloudinary (assuming base64 or URL)
+    // Step 1: Upload image to Cloudinary
     console.log("Uploading image to Cloudinary...");
+    console.log("Cloudinary config:", {
+      cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+      api_key: process.env.CLOUDINARY_API_KEY ? "***" : "missing",
+      api_secret: process.env.CLOUDINARY_API_SECRET ? "***" : "missing",
+    });
+
     const cloudinaryResponse = await cloudinary.uploader.upload(paymentImage, {
       folder: "mbti-payments",
       public_id: `payment_${Date.now()}`,
@@ -93,7 +115,11 @@ app.post("/api/process-order", async (req, res) => {
 
     console.log("Image uploaded successfully to Cloudinary:", cloudinaryResponse.public_id);
 
-    // Step 2: Save data to Google Sheets (with Cloudinary link)
+    // Step 2: Save data to Google Sheets
+    console.log("Saving to Google Sheets...");
+    const spreadsheetId = process.env.GOOGLE_SHEETS_ID || "1Zvq4LzomnEwRCS_qOyMPGhzeKglHTXAWwmdJoFdNzqg";
+    console.log("Spreadsheet ID:", spreadsheetId);
+
     const values = [
       [
         name,
@@ -108,13 +134,15 @@ app.post("/api/process-order", async (req, res) => {
     ];
 
     const sheetsResponse = await sheets.spreadsheets.values.append({
-      spreadsheetId: process.env.GOOGLE_SHEETS_ID || "1Zvq4LzomnEwRCS_qOyMPGhzeKglHTXAWwmdJoFdNzqg",
+      spreadsheetId: spreadsheetId,
       range: "User Data!A:H",
       valueInputOption: "RAW",
       requestBody: {
         values: values,
       },
     });
+
+    console.log("Data saved successfully to Google Sheets");
 
     res.json({
       success: true,
@@ -123,8 +151,13 @@ app.post("/api/process-order", async (req, res) => {
       rowNumber: sheetsResponse.data.updates?.updatedRows || 1,
     });
   } catch (error) {
-    console.error("Error processing order:", error);
-    res.status(500).json({ error: "Failed to process order" });
+    console.error("Error processing order:");
+    console.error("Error message:", error.message);
+    console.error("Error stack:", error.stack);
+    res.status(500).json({
+      error: "Failed to process order",
+      details: error.message
+    });
   }
 });
 
