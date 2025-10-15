@@ -78,6 +78,17 @@ export default async function handler(req, res) {
       api_key: process.env.CLOUDINARY_API_KEY ? "***" : "missing",
       api_secret: process.env.CLOUDINARY_API_SECRET ? "***" : "missing",
     });
+    console.log("Payment image preview:", paymentImage.substring(0, 100) + "...");
+    console.log("Payment image length:", paymentImage.length);
+
+    // Validate base64 format
+    if (!paymentImage.startsWith('data:image/')) {
+      console.error("Invalid image format - not a data URL");
+      return res.status(400).json({
+        error: "Invalid image format",
+        details: "Image must be a base64 data URL starting with 'data:image/'"
+      });
+    }
 
     const cloudinaryResponse = await cloudinary.uploader.upload(paymentImage, {
       folder: "mbti-payments",
