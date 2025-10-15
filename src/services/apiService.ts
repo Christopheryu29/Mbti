@@ -9,14 +9,19 @@ export class ApiService {
   ): Promise<OrderResult> {
     try {
       const sheetsId = config.get("googleSheetsId");
-      const apiBaseUrl = config.get("apiBaseUrl");
+      let apiBaseUrl = config.get("apiBaseUrl");
 
-      if (config.get("isDevelopment")) {
-        console.log("Processing order with data:", {
-          ...orderData,
-          paymentImage: orderData.paymentImage.name,
-        });
+      // Runtime check: if API URL is localhost but we're not on localhost, use current origin
+      if (apiBaseUrl.includes("localhost") && !window.location.hostname.includes("localhost")) {
+        apiBaseUrl = `${window.location.origin}/api`;
+        console.log("Production detected, using API URL:", apiBaseUrl);
       }
+
+      console.log("Processing order with data:", {
+        ...orderData,
+        paymentImage: orderData.paymentImage.name,
+        apiBaseUrl: apiBaseUrl,
+      });
 
       const hasGoogleConfig = sheetsId;
 
