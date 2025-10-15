@@ -769,36 +769,48 @@ body {
 /* Responsive breakpoints */
 @media (max-width: 480px) {
   .page9-template {
-    padding: 15px;
+    padding: 10px;
+    min-height: 100vh;
+    height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
   }
 
   .page9-question {
-    margin: 60px 0 30px 0;
+    margin: 50px 0 20px 0;
   }
 
   .page9-question-line {
-    font-size: 28px;
+    font-size: 22px;
   }
 
   .page9-options-container {
-    padding: 20px;
-    gap: 15px;
-    min-height: 250px;
+    padding: 15px;
+    gap: 12px;
+    min-height: auto;
   }
 
   .page9-character {
     right: -30px;
-    top: -15%;
+    top: -10%;
     transform: translateY(-50%) rotate(-15deg);
   }
 
   .page9-character-img {
-    width: 150px;
+    width: 120px;
   }
 
   .page9-option-box {
-    padding: 18px;
+    padding: 15px;
+    min-height: 45px;
+    font-size: 14px;
+  }
+
+  .page9-next-button {
+    margin: 15px 0 0 0;
+    padding: 15px 30px;
     min-height: 50px;
+    font-size: 14px;
   }
 }
 
@@ -5363,15 +5375,49 @@ body {
 .hello-text {
   font-family: "Fredoka One", cursive;
   font-size: clamp(40px, 10vw, 60px);
-  font-weight: 400;
+  font-weight: 900;
   color: #2160b8;
-  text-shadow: 4px 4px 0 #a7d1f7;
+  text-shadow: 2px 2px 0 #a7d1f7, 4px 4px 0 #e0f2f7, 6px 6px 0 #1a4a8a,
+    8px 8px 15px rgba(0, 0, 0, 0.2);
   margin-top: -150px;
   z-index: 10;
   position: relative;
   margin-bottom: 25px;
-  transform: rotate(-1deg);
   letter-spacing: 2px;
+  -webkit-text-stroke: 1px #a7d1f7;
+  text-stroke: 1px #a7d1f7;
+  display: block;
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  transform: translateX(0px);
+}
+
+.hello-text .letter-h {
+  display: inline-block;
+  transform: rotate(3deg) translateX(-20px);
+}
+
+.hello-text .letter-e {
+  display: inline-block;
+  transform: rotate(-3deg) translateX(-20px);
+}
+
+.hello-text .letter-l1 {
+  display: inline-block;
+  transform: rotate(3deg) translateX(-20px);
+}
+
+.hello-text .letter-l2 {
+  display: inline-block;
+  transform: rotate(-3deg) translateX(-20px);
+}
+
+.hello-text .letter-o {
+  display: inline-block;
+  transform: rotate(3deg) translateX(-20px);
 }
 
 .hello-character {
@@ -5394,18 +5440,24 @@ body {
 }
 
 .name-prompt-line {
-  font-family: Arial, sans-serif;
-  font-size: clamp(13px, 3.2vw, 16px);
-  color: #333;
-  margin-bottom: 3px;
-  font-weight: 400;
+  font-family: "Caveat Brush", cursive;
+  font-size: clamp(24px, 3.5vw, 28px);
+  color: #4a90e2;
+  margin-bottom: 5px;
+  font-weight: 300;
+  font-style: italic;
+  transform: rotate(-0.5deg);
+  letter-spacing: 0.5px;
 }
 
 .name-prompt-name {
   font-family: "Fredoka One", cursive;
-  font-size: clamp(18px, 4.5vw, 24px);
-  font-weight: 400;
+  font-size: clamp(34px, 6vw, 46px);
+  font-weight: 900;
   color: #2160b8;
+  text-shadow: 3px 3px 0 #a7d1f7, 6px 6px 8px rgba(0, 0, 0, 0.1);
+  transform: rotate(0.5deg);
+  letter-spacing: 1px;
 }
 
 .name-input-container {
@@ -5462,60 +5514,144 @@ body {
 @media (max-width: 480px) {
   .name-input-page {
     padding: 15px;
+    min-height: 100vh;
+    height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
+    background: #f8f7f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .name-content-container {
-    padding: 100px 20px 60px 20px;
-    gap: 30px;
-    max-width: 320px;
-    min-height: 550px;
+    padding: 80px 45px 40px 45px;
+    gap: 20px;
+    max-width: 290px;
+    min-height: auto;
     border-radius: 30px;
     border: 3px dashed #a7d1f7;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    background: white;
   }
 
   .hello-text {
-    font-size: 82px;
-    margin-top: -165px;
+    font-size: 72px;
+    font-weight: 900;
+    margin-top: -120px;
     margin-bottom: 20px;
-    transform: rotate(-1deg);
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    color: #2160b8;
+    text-shadow: 2px 2px 0 #a7d1f7, 4px 4px 0 #e0f2f7, 6px 6px 0 #1a4a8a,
+      8px 8px 15px rgba(0, 0, 0, 0.2);
+    font-family: "Fredoka One", cursive;
+    -webkit-text-stroke: 1px #a7d1f7;
+  }
+
+  .hello-text .letter-h {
+    display: inline-block;
+    transform: rotate(3deg) translateX(-20px);
+  }
+
+  .hello-text .letter-e {
+    display: inline-block;
+    transform: rotate(-3deg) translateX(-20px);
+  }
+
+  .hello-text .letter-l1 {
+    display: inline-block;
+    transform: rotate(3deg) translateX(-20px);
+  }
+
+  .hello-text .letter-l2 {
+    display: inline-block;
+    transform: rotate(-3deg) translateX(-20px);
+  }
+
+  .hello-text .letter-o {
+    display: inline-block;
+    transform: rotate(3deg) translateX(-20px);
   }
 
   .hello-character-img {
-    width: 400px;
-    margin-bottom: 15px;
+    min-width: 300px;
+    height: auto;
+    margin-bottom: 20px;
+    margin-top: -40px;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+    transition: transform 0.3s ease;
+  }
+
+  .hello-character-img:hover {
+    transform: scale(1.05);
   }
 
   .name-prompt-line {
-    font-size: 12px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #4a90e2;
+    margin-top: -80px;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    font-family: "Caveat Brush", cursive;
+    font-style: italic;
+    transform: rotate(-0.5deg);
   }
 
   .name-prompt-name {
-    font-size: 16px;
+    font-size: 32px;
+    font-weight: 900;
+    color: #2160b8;
+    letter-spacing: 1px;
+    text-shadow: 3px 3px 0 #a7d1f7, 6px 6px 8px rgba(0, 0, 0, 0.1);
+    font-family: "Fredoka One", cursive;
+    transform: rotate(0.5deg);
   }
 
   .name-input-field {
-    font-size: 14px;
-    padding: 5px 0;
+    font-size: 18px;
+    padding: 12px 0;
+    border: none;
+    border-bottom: 3px solid #2160b8;
+    background: transparent;
+    transition: all 0.3s ease;
+    font-family: "Fredoka One", cursive;
+    color: #2160b8;
+    text-align: center;
+    letter-spacing: 1px;
+    width: 100%;
+    outline: none;
+  }
+
+  .name-input-field:focus {
+    border-bottom-color: #2160b8;
+    border-bottom-width: 4px;
+  }
+
+  .name-input-field::placeholder {
+    color: #a7d1f7;
+    font-weight: 400;
   }
 
   .name-next-button {
     background: white;
     border: none;
     border-radius: 25px;
-    padding: 16px 40px;
+    padding: 16px 35px;
     font-family: "Fredoka One", cursive;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 800;
     color: #2160b8;
     cursor: pointer;
     margin-top: 25px;
     box-shadow: 0 6px 0 #8b9dc3, 0 8px 15px rgba(0, 0, 0, 0.1);
     text-shadow: 2px 2px 0 #8b9dc3;
     width: 100%;
-    max-width: 320px;
-    transition: all 0.2s ease;
+    max-width: 270px;
+    transition: all 0.3s ease;
     position: relative;
+    letter-spacing: 2px;
   }
 
   .name-next-button:hover:not(:disabled) {
@@ -5524,14 +5660,91 @@ body {
   }
 
   .name-next-button:active:not(:disabled) {
-    transform: translateY(4px);
-    box-shadow: 0 2px 0 #8b9dc3, 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(2px);
+    box-shadow: 0 4px 0 #8b9dc3, 0 6px 12px rgba(0, 0, 0, 0.1);
   }
 
   .name-next-button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
     transform: none;
+  }
+
+  /* Additional mobile enhancements */
+  .name-content-container {
+    animation: slideInUp 0.6s ease-out;
+  }
+
+  .hello-text {
+    animation: bounceIn 0.8s ease-out 0.2s both;
+  }
+
+  .hello-character-img {
+    animation: fadeInScale 0.8s ease-out 0.4s both;
+  }
+
+  .name-prompt {
+    animation: fadeInUp 0.6s ease-out 0.6s both;
+  }
+
+  .name-input-field {
+    animation: fadeInUp 0.6s ease-out 0.8s both;
+  }
+
+  .name-next-button {
+    animation: fadeInUp 0.6s ease-out 1s both;
+  }
+}
+
+/* Mobile animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-1deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05) rotate(-2deg);
+  }
+  70% {
+    transform: scale(0.9) rotate(-2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(-2deg);
+  }
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -5559,11 +5772,18 @@ body {
   }
 
   .name-prompt-line {
-    font-size: 15px;
+    font-size: 18px;
+    font-family: "Caveat Brush", cursive;
+    color: #4a90e2;
+    font-style: italic;
+    transform: rotate(-0.5deg);
   }
 
   .name-prompt-name {
-    font-size: 22px;
+    font-size: 36px;
+    font-weight: 900;
+    text-shadow: 3px 3px 0 #a7d1f7, 6px 6px 8px rgba(0, 0, 0, 0.1);
+    transform: rotate(0.5deg);
   }
 
   .name-input-field {
@@ -5724,44 +5944,128 @@ body {
 @media (max-width: 480px) {
   .phone-input-page {
     padding: 15px;
+    min-height: 100vh;
+    height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
+    background: #f8f7f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .phone-content-container {
-    padding: 100px 20px 60px 20px;
-    gap: 30px;
-    max-width: 320px;
-    min-height: 550px;
+    padding: 80px 45px 40px 45px;
+    gap: 20px;
+    max-width: 290px;
+    min-height: auto;
     border-radius: 30px;
     border: 3px dashed #6b8e23;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    background: white;
+    margin: 0 auto;
   }
 
   .phone-prompt-line {
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: 300;
+    color: #666;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    font-family: "Caveat Brush", cursive;
+    font-style: italic;
+    transform: rotate(-0.5deg);
   }
 
   .phone-prompt-phone,
   .phone-prompt-number {
     font-size: 20px;
+    font-weight: 800;
+    color: #6b8e23;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0 #8bc34a;
+    font-family: "Fredoka One", cursive;
+    transform: rotate(0.5deg);
   }
 
   .phone-input-field {
-    font-size: 14px;
-    padding: 5px 0;
+    font-size: 18px;
+    padding: 12px 0;
+    border: none;
+    border-bottom: 3px solid #6b8e23;
+    background: transparent;
+    transition: all 0.3s ease;
+    font-family: "Fredoka One", cursive;
+    color: #6b8e23;
+    text-align: center;
+    letter-spacing: 1px;
+    width: 100%;
+    outline: none;
+  }
+
+  .phone-input-field:focus {
+    border-bottom-color: #6b8e23;
+    border-bottom-width: 4px;
+  }
+
+  .phone-input-field::placeholder {
+    color: #8bc34a;
+    font-weight: 400;
   }
 
   .phone-character-img {
-    width: 100px;
+    min-width: 300px;
+    height: auto;
+    margin-bottom: 20px;
+    margin-top: -40px;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+    transition: transform 0.3s ease;
+  }
+
+  .phone-character-img:hover {
+    transform: scale(1.05);
   }
 
   .phone-next-button {
-    padding: 14px 35px;
-    font-size: 17px;
-    margin-top: 25px;
+    background: white;
+    border: none;
     border-radius: 25px;
+    padding: 16px 35px;
+    font-family: "Fredoka One", cursive;
+    font-size: 18px;
+    font-weight: 800;
+    color: #6b8e23;
+    cursor: pointer;
+    margin-top: 25px;
     box-shadow: 0 6px 0 #8bc34a, 0 8px 15px rgba(0, 0, 0, 0.1);
     text-shadow: 2px 2px 0 #8bc34a;
     width: 100%;
-    max-width: 320px;
+    max-width: 290px;
+    transition: all 0.3s ease;
+    position: relative;
+    letter-spacing: 2px;
+  }
+
+  /* Additional mobile enhancements */
+  .phone-content-container {
+    animation: slideInUp 0.6s ease-out;
+  }
+
+  .phone-prompt {
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+  }
+
+  .phone-input-field {
+    animation: fadeInUp 0.6s ease-out 0.4s both;
+  }
+
+  .phone-character-img {
+    animation: fadeInScale 0.8s ease-out 0.6s both;
+  }
+
+  .phone-next-button {
+    animation: fadeInUp 0.6s ease-out 0.8s both;
   }
 }
 

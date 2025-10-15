@@ -23,7 +23,13 @@ const NameInput: React.FC = () => {
       {/* Main content container */}
       <div className="name-content-container">
         {/* HELLO text */}
-        <div className="hello-text">HELLO</div>
+        <div className="hello-text">
+          <span className="letter-h">H</span>
+          <span className="letter-e">E</span>
+          <span className="letter-l1">L</span>
+          <span className="letter-l2">L</span>
+          <span className="letter-o">O</span>
+        </div>
 
         {/* Character from hello.webp */}
         <div className="hello-character">
