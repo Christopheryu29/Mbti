@@ -9,6 +9,7 @@ export interface UserData {
   shirtDesign?: ShirtDesign;
   paymentInfo?: PaymentInfo;
   appointmentDate?: string;
+  selectedOtherPatches?: string[];
 }
 
 export interface TestResults {

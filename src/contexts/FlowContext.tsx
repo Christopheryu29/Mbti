@@ -33,6 +33,7 @@ export const FlowProvider: React.FC<FlowProviderProps> = ({ children }) => {
     name: "",
     phone: "",
     address: "",
+    personalityType: "green", // Default to Harmonizer
   });
   const [currentStep, setCurrentStep] = useState(1);
   const [testAnswers, setTestAnswers] = useState<number[]>([]);
@@ -102,6 +103,7 @@ export const FlowProvider: React.FC<FlowProviderProps> = ({ children }) => {
       name: "",
       phone: "",
       address: "",
+      personalityType: "green", // Default to Harmonizer
     });
     setCurrentStep(1);
     setTestAnswers([]);

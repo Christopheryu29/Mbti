@@ -19,39 +19,49 @@ const NameInput: React.FC = () => {
   // };
 
   return (
-    <div className="image-screen">
-      <div className="image-container">
-        <img
-          src="/Copy of WEBSITE LSP (1).jpg"
-          alt="Name Input Page"
-          className="landing-image"
-        />
+    <div className="name-input-page">
+      {/* Main content container */}
+      <div className="name-content-container">
+        {/* HELLO text */}
+        <div className="hello-text">HELLO</div>
 
-        {/* Overlay form on the image */}
-        <div className="image-overlay">
-          {/* Input box */}
-          <div className="name-input-box">
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Enter your name"
-              className="name-input"
-              autoFocus
-            />
-          </div>
+        {/* Character from hello.webp */}
+        <div className="hello-character">
+          <img
+            src="/hello.webp"
+            alt="Hello Character"
+            className="hello-character-img"
+          />
+        </div>
 
-          {/* NEXT button */}
-          <button
-            className="next-button"
-            onClick={handleNext}
-            disabled={!name.trim()}
-            style={{ opacity: !name.trim() ? 0.6 : 1 }}
-          >
-            NEXT
-          </button>
+        {/* Name prompt text */}
+        <div className="name-prompt">
+          <div className="name-prompt-line">PLEASE ENTER YOUR</div>
+          <div className="name-prompt-name">NAME:</div>
+        </div>
+
+        {/* Input field */}
+        <div className="name-input-container">
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder=""
+            className="name-input-field"
+            autoFocus
+          />
         </div>
       </div>
+
+      {/* NEXT button */}
+      <button
+        className="name-next-button"
+        onClick={handleNext}
+        disabled={!name.trim()}
+        style={{ opacity: !name.trim() ? 0.6 : 1 }}
+      >
+        NEXT
+      </button>
     </div>
   );
 };

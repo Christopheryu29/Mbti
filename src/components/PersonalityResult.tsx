@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFlow } from "../contexts/FlowContext";
 
 const PersonalityResult: React.FC = () => {
   const navigate = useNavigate();
   const { userData } = useFlow();
+  const [hasSelectedAction, setHasSelectedAction] = useState(false);
 
   const personalityData = {
     green: {
@@ -34,15 +35,13 @@ const PersonalityResult: React.FC = () => {
     personalityData[currentPersonality as keyof typeof personalityData];
 
   const handleClaimOrder = () => {
+    setHasSelectedAction(true);
     navigate("/design-shirt");
   };
 
   const handleGetOtherPatch = () => {
+    setHasSelectedAction(true);
     navigate("/get-other-patch");
-  };
-
-  const handleNext = () => {
-    navigate("/claim-order");
   };
 
   return (
@@ -105,10 +104,12 @@ const PersonalityResult: React.FC = () => {
         </button>
       </div>
 
-      {/* Large NEXT Button */}
-      <button className="result-next-button" onClick={handleNext}>
-        NEXT
-      </button>
+      {/* Helper Text */}
+      {!hasSelectedAction && (
+        <div className="result-helper-text">
+          Please select an option above to continue
+        </div>
+      )}
     </div>
   );
 };

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useFlow } from "../contexts/FlowContext";
 
 const ChooseOtherPatch: React.FC = () => {
   const navigate = useNavigate();
+  const { updateUserData } = useFlow();
   const [selectedPatches, setSelectedPatches] = useState<number[]>([]);
 
   const handlePatchClick = (index: number) => {
@@ -16,16 +18,24 @@ const ChooseOtherPatch: React.FC = () => {
   };
 
   const handleDone = () => {
-    // Navigate to the next page or process the selection
-    navigate("/personality-result");
+    // Save selected patches to user data
+    const selectedPatchImages = selectedPatches.map(
+      (index) => `mbti${index + 1}.webp`
+    );
+    updateUserData({
+      selectedOtherPatches: selectedPatchImages,
+    });
+
+    // Navigate to design shirt page
+    navigate("/design-shirt");
   };
 
   const handleBack = () => {
     navigate("/get-other-patch-20");
   };
 
-  // Create a 5x5 grid (25 total patches)
-  const gridItems = Array.from({ length: 25 }, (_, index) => index);
+  // Create a 4x4 grid (16 total MBTI patches)
+  const gridItems = Array.from({ length: 16 }, (_, index) => index);
 
   return (
     <div className="choose-other-patch-template">
@@ -48,19 +58,12 @@ const ChooseOtherPatch: React.FC = () => {
               }`}
               onClick={() => handlePatchClick(index)}
             >
-              {/* Show marshmallow patch for first 5 items */}
-              {index < 5 && (
-                <div className="marshmallow-patch">
-                  <div className="marshmallow-body"></div>
-                  <div className="marshmallow-face">
-                    <div className="marshmallow-eyes">
-                      <div className="eye"></div>
-                      <div className="eye"></div>
-                    </div>
-                    <div className="marshmallow-mouth"></div>
-                  </div>
-                </div>
-              )}
+              {/* Show MBTI patch images */}
+              <img
+                src={`/mbti${index + 1}.webp`}
+                alt={`MBTI Patch ${index + 1}`}
+                className="mbti-patch-img"
+              />
             </div>
           ))}
         </div>
