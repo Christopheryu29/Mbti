@@ -34,23 +34,39 @@ export class ApiService {
       }
 
       // Convert image to base64
+      console.log("Converting image to base64...", {
+        fileName: orderData.paymentImage.name,
+        fileType: orderData.paymentImage.type,
+        fileSize: orderData.paymentImage.size
+      });
+
       const imageBase64 = await this.fileToBase64(orderData.paymentImage);
 
+      console.log("Image converted to base64, length:", imageBase64.length);
+      console.log("Base64 preview:", imageBase64.substring(0, 50) + "...");
+
       // Use backend server to process the complete order
+      const payload = {
+        name: orderData.name,
+        phone: orderData.phone,
+        address: orderData.address,
+        personalityType: orderData.personalityType,
+        template: orderData.template,
+        position: orderData.position || "",
+        paymentImage: imageBase64,
+      };
+
+      console.log("Sending payload to API:", {
+        ...payload,
+        paymentImage: payload.paymentImage.substring(0, 50) + "..."
+      });
+
       const response = await fetch(`${apiBaseUrl}/process-order`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          name: orderData.name,
-          phone: orderData.phone,
-          address: orderData.address,
-          personalityType: orderData.personalityType,
-          template: orderData.template,
-          position: orderData.position || "",
-          paymentImage: imageBase64,
-        }),
+        body: JSON.stringify(payload),
       });
 
       if (!response.ok) {
