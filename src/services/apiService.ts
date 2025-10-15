@@ -28,21 +28,24 @@ export class ApiService {
         return this.processOrderFallback(orderData);
       }
 
-      // Use backend server to process the complete order
-      const formData = new FormData();
-      formData.append("name", orderData.name);
-      formData.append("phone", orderData.phone);
-      formData.append("address", orderData.address);
-      formData.append("personalityType", orderData.personalityType);
-      formData.append("template", orderData.template);
-      if (orderData.position) {
-        formData.append("position", orderData.position);
-      }
-      formData.append("paymentImage", orderData.paymentImage);
+      // Convert image to base64
+      const imageBase64 = await this.fileToBase64(orderData.paymentImage);
 
+      // Use backend server to process the complete order
       const response = await fetch(`${apiBaseUrl}/process-order`, {
         method: "POST",
-        body: formData,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: orderData.name,
+          phone: orderData.phone,
+          address: orderData.address,
+          personalityType: orderData.personalityType,
+          template: orderData.template,
+          position: orderData.position || "",
+          paymentImage: imageBase64,
+        }),
       });
 
       if (!response.ok) {
@@ -65,6 +68,16 @@ export class ApiService {
       logError(error, "ApiService.processOrder");
       return this.processOrderFallback(orderData);
     }
+  }
+
+  // Helper method to convert File to base64
+  private static async fileToBase64(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = (error) => reject(error);
+      reader.readAsDataURL(file);
+    });
   }
 
   // Fallback method that works without Google APIs

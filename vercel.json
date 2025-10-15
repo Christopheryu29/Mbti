@@ -7,23 +7,12 @@
       "config": {
         "distDir": "dist"
       }
-    },
-    {
-      "src": "server-example.mjs",
-      "use": "@vercel/node"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "/server-example.mjs"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
