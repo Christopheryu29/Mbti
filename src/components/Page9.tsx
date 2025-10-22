@@ -25,9 +25,9 @@ const Page9: React.FC = () => {
     }
   };
 
-  // const handleBack = () => {
-  //   navigate("/mbti-test");
-  // };
+  const handleBack = () => {
+    navigate("/mbti-test");
+  };
 
   const options = [
     "the dreamer",
@@ -38,8 +38,10 @@ const Page9: React.FC = () => {
 
   return (
     <div className="page9-template">
-      {/* Top left circle placeholder */}
-      <div className="page9-top-left-circle"></div>
+      {/* Back button (X) in top left */}
+      <button className="page9-back-button" onClick={handleBack}>
+        ×
+      </button>
 
       {/* Step indicator in top right */}
       <div className="page9-step-indicator">01</div>

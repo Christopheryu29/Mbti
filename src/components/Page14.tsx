@@ -47,7 +47,10 @@ const Page14: React.FC = () => {
       <div className="page14-step-indicator">06</div>
 
       {/* Main question */}
-      <div className="page14-question">AT A PARTY YOU'RE...</div>
+      <div className="page14-question">
+        <div className="page14-question-line">AT A PARTY</div>
+        <div className="page14-question-line">YOU'RE...</div>
+      </div>
 
       {/* Main character with balloons */}
       <div className="page14-main-character">
@@ -76,20 +79,20 @@ const Page14: React.FC = () => {
       {/* Bottom characters */}
       <div className="page14-bottom-characters">
         {/* Green character */}
-        <div className="page14-bottom-character">
+        <div className="page14-bottom-character page14-green-character">
           <img
             src="/img6c.webp"
             alt="Green Party Character"
-            className="page14-bottom-character-img"
+            className="page14-bottom-character-img page14-green-character-img"
           />
         </div>
 
         {/* Purple character */}
-        <div className="page14-bottom-character">
+        <div className="page14-bottom-character page14-purple-character">
           <img
             src="/img6b.webp"
             alt="Purple Party Character"
-            className="page14-bottom-character-img"
+            className="page14-bottom-character-img page14-purple-character-img"
           />
         </div>
       </div>

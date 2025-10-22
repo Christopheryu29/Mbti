@@ -45,7 +45,8 @@ const Page15: React.FC = () => {
       <div className="page15-question-container">
         <div className="page15-question">
           <div className="page15-question-line">FRIENDS</div>
-          <div className="page15-question-line">CALL YOU...</div>
+          <div className="page15-question-line">CALL</div>
+          <div className="page15-question-line">YOU...</div>
         </div>
 
         {/* Top character group beside title */}

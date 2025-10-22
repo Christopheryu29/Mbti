@@ -9,18 +9,27 @@ const MBTITest: React.FC = () => {
   };
 
   return (
-    <div className="image-screen">
-      <div className="image-container">
-        <img src="/8.jpg" alt="MBTI Test Page" className="landing-image" />
-
-        {/* Overlay button on the image */}
-        <div className="mbti-test-overlay">
-          {/* NEXT button */}
-          <button className="mbti-test-next-button" onClick={handleNext}>
-            NEXT
-          </button>
-        </div>
+    <div className="mbti-test-page">
+      {/* Main title section */}
+      <div className="mbti-test-title">
+        <div className="mbti-test-title-line">LET'S FIND OUT WHICH</div>
+        <div className="mbti-test-title-main">QUABUDZ</div>
+        <div className="mbti-test-title-line">ARE YOU?</div>
       </div>
+
+      {/* Character icons */}
+      <div className="mbti-test-characters">
+        <img
+          src="/findout.webp"
+          alt="MBTI Characters"
+          className="mbti-test-character-icon"
+        />
+      </div>
+
+      {/* NEXT button */}
+      <button className="mbti-test-next-button" onClick={handleNext}>
+        NEXT
+      </button>
     </div>
   );
 };
