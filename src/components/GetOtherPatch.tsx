@@ -39,36 +39,12 @@ const GetOtherPatch: React.FC = () => {
         <div className="get-other-patch-question-line">RATHER...</div>
       </div>
 
-      {/* Character image */}
-      <div className="get-other-patch-character">
-        <div className="party-blob">
-          <div className="blob-eyes">
-            <div className="eye left-eye">
-              <div className="pupil"></div>
-              <div className="highlight"></div>
-            </div>
-            <div className="eye right-eye">
-              <div className="pupil"></div>
-              <div className="highlight"></div>
-            </div>
-          </div>
-          <div className="blob-mouth"></div>
-          <div className="party-hat"></div>
-          <div className="confetti-effects">
-            <div className="confetti confetti-1"></div>
-            <div className="confetti confetti-2"></div>
-            <div className="confetti confetti-3"></div>
-            <div className="confetti confetti-4"></div>
-          </div>
-        </div>
-      </div>
-
       {/* Options container */}
-      <div className="get-other-patch-options-container">
+      <div className="get-other-patch3-options-container">
         {options.map((option, index) => (
           <div
             key={index}
-            className={`get-other-patch-option-box ${
+            className={`get-other-patch3-option-box ${
               selectedOption === option ? "selected" : ""
             }`}
             onClick={() => setSelectedOption(option)}
@@ -78,9 +54,18 @@ const GetOtherPatch: React.FC = () => {
         ))}
       </div>
 
+      {/* Character image */}
+      <div className="get-other-patch-character">
+        <img
+          src="/n1.webp"
+          alt="Character"
+          className="get-other-patch-character-img"
+        />
+      </div>
+
       {/* NEXT button at bottom */}
       <button
-        className="get-other-patch-next-button"
+        className="get-other-patch3-next-button"
         onClick={handleNext}
         disabled={!selectedOption}
         style={{ opacity: !selectedOption ? 0.6 : 1 }}

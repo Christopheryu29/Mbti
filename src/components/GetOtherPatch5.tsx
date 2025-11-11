@@ -17,49 +17,50 @@ const GetOtherPatch5: React.FC = () => {
   };
 
   const options = [
-    "PLEASANT,<br/>OR AT<br/>LEAST EASY",
-    "SOMETHING<br/>THAT TAKES A<br/>GOOD DEAL OF<br/>EFFORT",
+    "PLEASANT, OR AT LEAST EASY",
+    "SOMETHING THAT TAKES A GOOD DEAL OF EFFORT",
   ];
 
   return (
     <div className="get-other-patch5-template">
       {/* X button in top left */}
-      <button className="get-other-patch5-x-button" onClick={handleBack}>
+      <button className="get-other-patch3-x-button" onClick={handleBack}>
         ×
       </button>
 
       {/* Step indicator in top right */}
-      <div className="get-other-patch5-step-indicator">05</div>
+      <div className="get-other-patch3-step-indicator">05</div>
 
-      {/* White content container */}
-      <div className="get-other-patch5-content-container">
-        {/* Main question */}
-        <div className="get-other-patch5-question">
-          <div className="get-other-patch5-question-line">WHEN YOU HAVE TO</div>
-          <div className="get-other-patch5-question-line">MEET STRANGERS,</div>
-          <div className="get-other-patch5-question-line">
-            DO YOU FIND IT...
+      {/* Main question */}
+      <div className="get-other-patch5-question">
+        <div className="get-other-patch5-question-line">WHEN YOU HAVE TO</div>
+        <div className="get-other-patch5-question-line">MEET STRANGERS,</div>
+        <div className="get-other-patch5-question-line">DO YOU FIND IT...</div>
+      </div>
+
+      {/* Options container */}
+      <div className="get-other-patch3-options-container">
+        <img
+          src="/n5.webp"
+          alt="Character"
+          className="get-other-patch5-image-top-right"
+        />
+        {options.map((option, index) => (
+          <div
+            key={index}
+            className={`get-other-patch3-option-box ${
+              selectedOption === option ? "selected" : ""
+            }`}
+            onClick={() => setSelectedOption(option)}
+          >
+            {option}
           </div>
-        </div>
-
-        {/* Options container */}
-        <div className="get-other-patch5-options-container">
-          {options.map((option, index) => (
-            <div
-              key={index}
-              className={`get-other-patch5-option-box ${
-                selectedOption === option ? "selected" : ""
-              }`}
-              onClick={() => setSelectedOption(option)}
-              dangerouslySetInnerHTML={{ __html: option }}
-            ></div>
-          ))}
-        </div>
+        ))}
       </div>
 
       {/* NEXT button at bottom */}
       <button
-        className="get-other-patch5-next-button"
+        className="get-other-patch3-next-button"
         onClick={handleNext}
         disabled={!selectedOption}
         style={{ opacity: !selectedOption ? 0.6 : 1 }}

@@ -1,0 +1,142 @@
+{
+  "question1": {
+    "title": "When you are with a group of people, would you usually rather...",
+    "options": {
+      "option1": "Join in the talk of the group",
+      "option2": "Talk individually with people you know well"
+    }
+  },
+  "question2": {
+    "title": "Do you usually get along better with...",
+    "options": {
+      "option1": "Realistic people",
+      "option2": "Imaginative people"
+    }
+  },
+  "question3": {
+    "title": "Which word in the pair appeals to you more?",
+    "options": {
+      "option1": "Analyze",
+      "option2": "Sympathize"
+    }
+  },
+  "question4": {
+    "title": "Does following a schedule...",
+    "options": {
+      "option1": "Appeal to you",
+      "option2": "Cramp you"
+    }
+  },
+  "question5": {
+    "title": "Which word in the pair appeals to you more?",
+    "options": {
+      "option1": "Thinking",
+      "option2": "Feeling"
+    }
+  },
+  "question6": {
+    "title": "Which word in the pair appeals to you more?",
+    "options": {
+      "option1": "Thinking",
+      "option2": "Feeling"
+    }
+  },
+  "question7": {
+    "title": "Which word in the pair appeals to you more?",
+    "options": {
+      "option1": "Thinking",
+      "option2": "Feeling"
+    }
+  },
+  "question8": {
+    "title": "Which word in the pair appeals to you more?",
+    "options": {
+      "option1": "Thinking",
+      "option2": "Feeling"
+    }
+  },
+  "question9": {
+    "title": "Are you...",
+    "options": {
+      "option1": "Easy to get to know",
+      "option2": "Hard to get to know"
+    }
+  },
+  "question10": {
+    "title": "Is it higher praise to say someone has",
+    "options": {
+      "option1": "Common sense",
+      "option2": "Vision"
+    }
+  },
+  "question11": {
+    "title": "Which word in the pair appeals to you more?",
+    "options": {
+      "option1": "Firm",
+      "option2": "Gentle"
+    }
+  },
+  "question12": {
+    "title": "Does the idea of making a list of what you should get done over a weekend...",
+    "options": {
+      "option1": "Appeal to you",
+      "option2": "Leave you cold"
+    }
+  },
+  "question13": {
+    "title": "Do you tend to have...",
+    "options": {
+      "option1": "Broad friendships with many different people",
+      "option2": "Deep friendships with a very few people"
+    }
+  },
+  "question14": {
+    "title": "Would you rather have as a friend someone who...",
+    "options": {
+      "option1": "Has both feet on the ground",
+      "option2": "Is always coming up with new ideas"
+    }
+  },
+  "question15": {
+    "title": "Which word in the pair appeals to you more...",
+    "options": {
+      "option1": "Thinking",
+      "option2": "Feeling"
+    }
+  },
+  "question16": {
+    "title": "When it is settled well in advance that you will do a certain thing at a certain time, do you find it...",
+    "options": {
+      "option1": "Nice to be able to plan accordingly",
+      "option2": "A little unpleasant to be tied down"
+    }
+  },
+  "question17": {
+    "title": "At parties, do you...",
+    "options": {
+      "option1": "Always have fun",
+      "option2": "Sometimes get bored"
+    }
+  },
+  "question18": {
+    "title": "Would you rather be considered...",
+    "options": {
+      "option1": "A practical person",
+      "option2": "An ingenious person"
+    }
+  },
+  "question19": {
+    "title": "Is it a higher compliment to be called...",
+    "options": {
+      "option1": "A consistently reasonable person",
+      "option2": "A person of real feeling"
+    }
+  },
+  "question20": {
+    "title": "Is it harder for you to adapt to...",
+    "options": {
+      "option1": "Constant change",
+      "option2": "Routine"
+    }
+  }
+}

@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { FlowProvider } from "./contexts/FlowContext";
 import ErrorBoundary from "./components/ErrorBoundary";
 import StartScreen from "./components/StartScreen";
+import LanguageSelector from "./components/LanguageSelector";
 import NameInput from "./components/NameInput";
 import Page3 from "./components/Page3";
 import Page48 from "./components/Page48";
@@ -52,6 +53,7 @@ import ChooseOtherPatch from "./components/ChooseOtherPatch";
 import MBTIScoringResult from "./components/MBTIScoringResult";
 import PersonalizedPatch from "./components/PersonalizedPatch";
 import ChooseOwnPatch from "./components/ChooseOwnPatch";
+import ComingSoon from "./components/ComingSoon";
 import "./App.css";
 
 function App() {
@@ -62,6 +64,7 @@ function App() {
           <div className="app">
             <Routes>
               <Route path="/" element={<StartScreen />} />
+              <Route path="/language-selector" element={<LanguageSelector />} />
               <Route path="/name" element={<NameInput />} />
               <Route path="/3.jpg" element={<Page3 />} />
               <Route path="/48.jpg" element={<Page48 />} />
@@ -140,6 +143,7 @@ function App() {
                 element={<PersonalizedPatch />}
               />
               <Route path="/choose-own-patch" element={<ChooseOwnPatch />} />
+              <Route path="/coming-soon" element={<ComingSoon />} />
             </Routes>
           </div>
         </Router>

@@ -16,7 +16,7 @@ const GetOtherPatch4: React.FC = () => {
     navigate("/get-other-patch-3");
   };
 
-  const options = ["APPEAL TO<br/>YOU", "CRAMP<br/>YOU"];
+  const options = ["APPEAL TO YOU", "CRAMP YOU"];
 
   return (
     <div className="get-other-patch4-template">
@@ -28,27 +28,30 @@ const GetOtherPatch4: React.FC = () => {
       {/* Step indicator in top right */}
       <div className="get-other-patch4-step-indicator">04</div>
 
-      {/* White content container */}
-      <div className="get-other-patch4-content-container">
-        {/* Main question */}
-        <div className="get-other-patch4-question">
-          <div className="get-other-patch4-question-line">DOES FOLLOWING A</div>
-          <div className="get-other-patch4-question-line">SCHEDULE...</div>
-        </div>
+      {/* Main question */}
+      <div className="get-other-patch4-question">
+        <div className="get-other-patch4-question-left">DOES FOLLOWING</div>
+        <div className="get-other-patch4-question-right">A SCHEDULE...</div>
+        <img
+          src="/n4.webp"
+          alt="Character"
+          className="get-other-patch4-image"
+        />
+      </div>
 
-        {/* Options container */}
-        <div className="get-other-patch4-options-container">
-          {options.map((option, index) => (
-            <div
-              key={index}
-              className={`get-other-patch4-option-box ${
-                selectedOption === option ? "selected" : ""
-              }`}
-              onClick={() => setSelectedOption(option)}
-              dangerouslySetInnerHTML={{ __html: option }}
-            ></div>
-          ))}
-        </div>
+      {/* Options container */}
+      <div className="get-other-patch4-options-container">
+        {options.map((option, index) => (
+          <div
+            key={index}
+            className={`get-other-patch4-option-box ${
+              selectedOption === option ? "selected" : ""
+            }`}
+            onClick={() => setSelectedOption(option)}
+          >
+            {option.toUpperCase()}
+          </div>
+        ))}
       </div>
 
       {/* NEXT button at bottom */}

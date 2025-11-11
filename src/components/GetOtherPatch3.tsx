@@ -37,56 +37,22 @@ const GetOtherPatch3: React.FC = () => {
         <div className="get-other-patch3-question-line">MORE?</div>
       </div>
 
-      {/* Character images */}
-      <div className="get-other-patch3-characters">
-        {/* Tiger character (left) */}
-        <div className="tiger-character">
-          <div className="tiger-blob">
-            <div className="tiger-eyes">
-              <div className="eye left-eye">
-                <div className="pupil"></div>
-                <div className="highlight"></div>
-              </div>
-              <div className="eye right-eye">
-                <div className="pupil"></div>
-                <div className="highlight"></div>
-              </div>
-            </div>
-            <div className="tiger-eyebrows"></div>
-            <div className="tiger-mouth"></div>
-            <div className="tiger-costume">
-              <div className="tiger-stripe stripe-1"></div>
-              <div className="tiger-stripe stripe-2"></div>
-              <div className="tiger-stripe stripe-3"></div>
-            </div>
-          </div>
-        </div>
-
-        {/* Elephant character (right) */}
-        <div className="elephant-character">
-          <div className="elephant-blob">
-            <div className="elephant-eyes">
-              <div className="eye left-eye">
-                <div className="pupil"></div>
-                <div className="highlight"></div>
-              </div>
-              <div className="eye right-eye">
-                <div className="pupil"></div>
-                <div className="highlight"></div>
-              </div>
-            </div>
-            <div className="elephant-mouth"></div>
-            <div className="elephant-cheeks"></div>
-            <div className="elephant-costume">
-              <div className="elephant-trunk"></div>
-            </div>
-            <div className="elephant-hands"></div>
-          </div>
-        </div>
-      </div>
-
       {/* Options container */}
       <div className="get-other-patch3-options-container">
+        {/* Top left image */}
+        <img
+          src="/n3.webp"
+          alt="Character"
+          className="get-other-patch3-image-top-left"
+        />
+
+        {/* Bottom right image */}
+        <img
+          src="/n3b.webp"
+          alt="Character"
+          className="get-other-patch3-image-bottom-right"
+        />
+
         {options.map((option, index) => (
           <div
             key={index}

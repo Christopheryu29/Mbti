@@ -1,0 +1,142 @@
+{
+  "question1": {
+    "title": "Ketika Anda bersama sekelompok orang, apakah Anda biasanya lebih suka...",
+    "options": {
+      "option1": "Bergabung dalam pembicaraan kelompok",
+      "option2": "Berbicara secara individual dengan orang yang Anda kenal baik"
+    }
+  },
+  "question2": {
+    "title": "Apakah Anda biasanya lebih cocok dengan...",
+    "options": {
+      "option1": "Orang yang realistis",
+      "option2": "Orang yang imajinatif"
+    }
+  },
+  "question3": {
+    "title": "Kata mana dalam pasangan yang lebih menarik bagi Anda?",
+    "options": {
+      "option1": "Menganalisis",
+      "option2": "Bersimpati"
+    }
+  },
+  "question4": {
+    "title": "Apakah mengikuti jadwal...",
+    "options": {
+      "option1": "Menarik bagi Anda",
+      "option2": "Membatasi Anda"
+    }
+  },
+  "question5": {
+    "title": "Kata mana dalam pasangan yang lebih menarik bagi Anda?",
+    "options": {
+      "option1": "Berpikir",
+      "option2": "Merasa"
+    }
+  },
+  "question6": {
+    "title": "Kata mana dalam pasangan yang lebih menarik bagi Anda?",
+    "options": {
+      "option1": "Berpikir",
+      "option2": "Merasa"
+    }
+  },
+  "question7": {
+    "title": "Kata mana dalam pasangan yang lebih menarik bagi Anda?",
+    "options": {
+      "option1": "Berpikir",
+      "option2": "Merasa"
+    }
+  },
+  "question8": {
+    "title": "Kata mana dalam pasangan yang lebih menarik bagi Anda?",
+    "options": {
+      "option1": "Berpikir",
+      "option2": "Merasa"
+    }
+  },
+  "question9": {
+    "title": "Apakah Anda...",
+    "options": {
+      "option1": "Mudah dikenal",
+      "option2": "Sulit dikenal"
+    }
+  },
+  "question10": {
+    "title": "Apakah pujian yang lebih tinggi untuk mengatakan seseorang memiliki",
+    "options": {
+      "option1": "Akal sehat",
+      "option2": "Visi"
+    }
+  },
+  "question11": {
+    "title": "Kata mana dalam pasangan yang lebih menarik bagi Anda?",
+    "options": {
+      "option1": "Tegas",
+      "option2": "Lembut"
+    }
+  },
+  "question12": {
+    "title": "Apakah ide membuat daftar hal-hal yang harus Anda selesaikan selama akhir pekan...",
+    "options": {
+      "option1": "Menarik bagi Anda",
+      "option2": "Membuat Anda tidak tertarik"
+    }
+  },
+  "question13": {
+    "title": "Apakah Anda cenderung memiliki...",
+    "options": {
+      "option1": "Pertemanan luas dengan banyak orang yang berbeda",
+      "option2": "Pertemanan mendalam dengan sedikit orang"
+    }
+  },
+  "question14": {
+    "title": "Apakah Anda lebih suka memiliki teman yang...",
+    "options": {
+      "option1": "Memiliki kedua kaki di tanah",
+      "option2": "Selalu datang dengan ide-ide baru"
+    }
+  },
+  "question15": {
+    "title": "Kata mana dalam pasangan yang lebih menarik bagi Anda...",
+    "options": {
+      "option1": "Berpikir",
+      "option2": "Merasa"
+    }
+  },
+  "question16": {
+    "title": "Ketika sudah ditetapkan sebelumnya bahwa Anda akan melakukan sesuatu pada waktu tertentu, apakah Anda merasa...",
+    "options": {
+      "option1": "Bagus untuk bisa merencanakan sesuai",
+      "option2": "Sedikit tidak menyenangkan untuk terikat"
+    }
+  },
+  "question17": {
+    "title": "Di pesta, apakah Anda...",
+    "options": {
+      "option1": "Selalu bersenang-senang",
+      "option2": "Kadang-kadang bosan"
+    }
+  },
+  "question18": {
+    "title": "Apakah Anda lebih suka dianggap...",
+    "options": {
+      "option1": "Orang yang praktis",
+      "option2": "Orang yang cerdik"
+    }
+  },
+  "question19": {
+    "title": "Apakah pujian yang lebih tinggi untuk dipanggil...",
+    "options": {
+      "option1": "Orang yang konsisten masuk akal",
+      "option2": "Orang yang benar-benar berperasaan"
+    }
+  },
+  "question20": {
+    "title": "Apakah lebih sulit bagi Anda untuk beradaptasi dengan...",
+    "options": {
+      "option1": "Perubahan konstan",
+      "option2": "Rutinitas"
+    }
+  }
+}

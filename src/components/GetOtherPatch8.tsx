@@ -17,47 +17,55 @@ const GetOtherPatch8: React.FC = () => {
   };
 
   const options = [
-    "ARRANGE DATES,<br/>PARTIES, ETC.,<br/>WELL IN<br/>ADVANCE,",
-    "BE FREE TO DO<br/>WHATEVER LOOKS<br/>LIKE FUN WHEN<br/>THE TIME COMES",
+    "ARRANGE DATES, PARTIES, ETC., WELL IN ADVANCE,",
+    "BE FREE TO DO WHATEVER LOOKS LIKE FUN WHEN THE TIME COMES",
   ];
 
   return (
     <div className="get-other-patch8-template">
       {/* X button in top left */}
-      <button className="get-other-patch8-x-button" onClick={handleBack}>
+      <button className="get-other-patch3-x-button" onClick={handleBack}>
         ×
       </button>
 
       {/* Step indicator in top right */}
-      <div className="get-other-patch8-step-indicator">08</div>
+      <div className="get-other-patch3-step-indicator">08</div>
 
-      {/* Light grey content container */}
-      <div className="get-other-patch8-content-container">
-        {/* Main question */}
-        <div className="get-other-patch8-question">
-          <div className="get-other-patch8-question-line">
-            DO YOU PREFER TO...
+      {/* Main question */}
+      <div className="get-other-patch3-question">
+        <div className="get-other-patch3-question-line">
+          DO YOU PREFER TO...
+        </div>
+      </div>
+
+      {/* Options container */}
+      <div className="get-other-patch3-options-container">
+        <img
+          src="/n8a.webp"
+          alt="Character"
+          className="get-other-patch8-image-top-left"
+        />
+        <img
+          src="/n8b.webp"
+          alt="Character"
+          className="get-other-patch8-image-bottom-right"
+        />
+        {options.map((option, index) => (
+          <div
+            key={index}
+            className={`get-other-patch3-option-box ${
+              selectedOption === option ? "selected" : ""
+            }`}
+            onClick={() => setSelectedOption(option)}
+          >
+            {option}
           </div>
-        </div>
-
-        {/* White options container */}
-        <div className="get-other-patch8-options-container">
-          {options.map((option, index) => (
-            <div
-              key={index}
-              className={`get-other-patch8-option-box ${
-                selectedOption === option ? "selected" : ""
-              }`}
-              onClick={() => setSelectedOption(option)}
-              dangerouslySetInnerHTML={{ __html: option }}
-            ></div>
-          ))}
-        </div>
+        ))}
       </div>
 
       {/* NEXT button at bottom */}
       <button
-        className="get-other-patch8-next-button"
+        className="get-other-patch3-next-button"
         onClick={handleNext}
         disabled={!selectedOption}
         style={{ opacity: !selectedOption ? 0.6 : 1 }}

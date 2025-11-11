@@ -1,0 +1,441 @@
+{
+  "personalityTypes": {
+    "INTJ": {
+      "name": "The Architect",
+      "description": "Imaginative and strategic thinkers, with a plan for everything.",
+      "strengths": [
+        "Quick, imaginative mind",
+        "Independent and decisive",
+        "Hard-working and determined",
+        "Open-minded",
+        "Self-confident"
+      ],
+      "weaknesses": [
+        "Overly analytical",
+        "Loathe highly structured environments",
+        "Clueless in romance",
+        "May be insensitive"
+      ],
+      "careers": ["Scientist", "Engineer", "Professor", "Doctor", "Lawyer"],
+      "famousPeople": [
+        "Stephen Hawking",
+        "Elon Musk",
+        "Nikola Tesla",
+        "Isaac Newton"
+      ]
+    },
+    "INTP": {
+      "name": "The Thinker",
+      "description": "Innovative inventors with an unquenchable thirst for knowledge.",
+      "strengths": [
+        "Great analysts",
+        "Imaginative and original",
+        "Open-minded",
+        "Enthusiastic",
+        "Objective"
+      ],
+      "weaknesses": [
+        "Very private and introverted",
+        "Insensitive",
+        "Absent-minded",
+        "Condescending",
+        "Dislikes rules"
+      ],
+      "careers": [
+        "Scientist",
+        "Mathematician",
+        "Philosopher",
+        "Architect",
+        "Programmer"
+      ],
+      "famousPeople": [
+        "Albert Einstein",
+        "Charles Darwin",
+        "Bill Gates",
+        "Marie Curie"
+      ]
+    },
+    "ENTJ": {
+      "name": "The Commander",
+      "description": "Bold, imaginative and strong-willed leaders, always finding a way or making one.",
+      "strengths": [
+        "Efficient",
+        "Energetic",
+        "Self-confident",
+        "Strong-willed",
+        "Strategic thinker"
+      ],
+      "weaknesses": [
+        "Stubborn and dominant",
+        "Cold and ruthless",
+        "Impatient",
+        "Poor handling of emotions",
+        "Intolerant"
+      ],
+      "careers": ["CEO", "Entrepreneur", "Politician", "Lawyer", "Manager"],
+      "famousPeople": [
+        "Steve Jobs",
+        "Napoleon Bonaparte",
+        "Winston Churchill",
+        "Margaret Thatcher"
+      ]
+    },
+    "ENTP": {
+      "name": "The Debater",
+      "description": "Smart and curious thinkers who cannot resist an intellectual challenge.",
+      "strengths": [
+        "Knowledgeable",
+        "Quick thinkers",
+        "Excellent brainstormers",
+        "Charismatic",
+        "Energetic"
+      ],
+      "weaknesses": [
+        "Very argumentative",
+        "Insensitive",
+        "Intolerant",
+        "Find it difficult to focus",
+        "Dislike practical matters"
+      ],
+      "careers": [
+        "Entrepreneur",
+        "Journalist",
+        "Actor",
+        "Comedian",
+        "Inventor"
+      ],
+      "famousPeople": [
+        "Mark Twain",
+        "Thomas Edison",
+        "Walt Disney",
+        "Richard Feynman"
+      ]
+    },
+    "INFJ": {
+      "name": "The Advocate",
+      "description": "Creative and insightful, inspired and independent perfectionists.",
+      "strengths": [
+        "Creative",
+        "Insightful",
+        "Inspiring and convincing",
+        "Decisive",
+        "Determined and passionate"
+      ],
+      "weaknesses": [
+        "Sensitive",
+        "Extremely private",
+        "Perfectionist",
+        "Always need a cause",
+        "Can burn out"
+      ],
+      "careers": ["Counselor", "Writer", "Teacher", "Psychologist", "Artist"],
+      "famousPeople": [
+        "Mother Teresa",
+        "Martin Luther King Jr.",
+        "Nelson Mandela",
+        "Jane Goodall"
+      ]
+    },
+    "INFP": {
+      "name": "The Mediator",
+      "description": "Poetic, kind and altruistic people, always eager to help a good cause.",
+      "strengths": [
+        "Idealistic",
+        "Loyal to their values",
+        "Curious and quick to see possibilities",
+        "Flexible and laid-back",
+        "Very creative and artistic"
+      ],
+      "weaknesses": [
+        "Too idealistic",
+        "Too altruistic",
+        "Disorganized",
+        "Tend to ignore the harsh side of life",
+        "Difficult to get to know"
+      ],
+      "careers": ["Writer", "Artist", "Counselor", "Teacher", "Musician"],
+      "famousPeople": [
+        "William Shakespeare",
+        "J.R.R. Tolkien",
+        "Johnny Depp",
+        "Princess Diana"
+      ]
+    },
+    "ENFJ": {
+      "name": "The Protagonist",
+      "description": "Charismatic and inspiring leaders, able to mesmerize their listeners.",
+      "strengths": [
+        "Natural leaders",
+        "Sensitive to people's feelings",
+        "Passionate and charismatic",
+        "Altruistic",
+        "Natural talent for public speaking"
+      ],
+      "weaknesses": [
+        "Overly idealistic",
+        "Too sensitive",
+        "Fluctuating self-esteem",
+        "Struggle to make tough decisions",
+        "Can be overly selfless"
+      ],
+      "careers": ["Teacher", "Counselor", "Politician", "Actor", "Writer"],
+      "famousPeople": [
+        "Oprah Winfrey",
+        "Barack Obama",
+        "Maya Angelou",
+        "Dr. Phil"
+      ]
+    },
+    "ENFP": {
+      "name": "The Campaigner",
+      "description": "Enthusiastic, creative and sociable free spirits, always ready to explore new possibilities.",
+      "strengths": [
+        "Enthusiastic",
+        "Creative",
+        "Sociable and free-spirited",
+        "Good at a variety of things",
+        "Loyal and caring"
+      ],
+      "weaknesses": [
+        "Poor practical skills",
+        "Find it difficult to focus",
+        "Overthink things",
+        "Highly emotional",
+        "Independent to a fault"
+      ],
+      "careers": [
+        "Actor",
+        "Journalist",
+        "Teacher",
+        "Counselor",
+        "Entrepreneur"
+      ],
+      "famousPeople": [
+        "Robin Williams",
+        "Will Smith",
+        "Ellen DeGeneres",
+        "Robert Downey Jr."
+      ]
+    },
+    "ISTJ": {
+      "name": "The Logistician",
+      "description": "Practical and fact-minded, reliable and responsible.",
+      "strengths": [
+        "Honest and direct",
+        "Strong-willed and dutiful",
+        "Very responsible",
+        "Calm and practical",
+        "Create and enforce order"
+      ],
+      "weaknesses": [
+        "Stubborn",
+        "Insensitive",
+        "Always by the book",
+        "Judgmental",
+        "Unreasonably blame themselves"
+      ],
+      "careers": ["Accountant", "Judge", "Manager", "Engineer", "Doctor"],
+      "famousPeople": [
+        "George Washington",
+        "Angela Merkel",
+        "Warren Buffett",
+        "Henry Ford"
+      ]
+    },
+    "ISFJ": {
+      "name": "The Protector",
+      "description": "Very dedicated and warm protectors, always ready to defend their loved ones.",
+      "strengths": [
+        "Supportive",
+        "Reliable and patient",
+        "Imaginative and observant",
+        "Enthusiastic",
+        "Loyal and hard-working"
+      ],
+      "weaknesses": [
+        "Humble and shy",
+        "Represses their feelings",
+        "Overload themselves",
+        "Reluctant to change",
+        "Too altruistic"
+      ],
+      "careers": ["Nurse", "Teacher", "Counselor", "Social worker", "Doctor"],
+      "famousPeople": [
+        "Mother Teresa",
+        "Kate Middleton",
+        "Jimmy Carter",
+        "Danny Glover"
+      ]
+    },
+    "ESTJ": {
+      "name": "The Executive",
+      "description": "Excellent administrators, unsurpassed at managing things or people.",
+      "strengths": [
+        "Dedicated",
+        "Strong-willed and direct",
+        "Loyal and patient",
+        "Reliable and responsible",
+        "Good at creating order"
+      ],
+      "weaknesses": [
+        "Inflexible and stubborn",
+        "Uncomfortable with unconventional situations",
+        "Judgmental",
+        "Too focused on social status",
+        "Difficulty expressing emotion"
+      ],
+      "careers": ["Manager", "Administrator", "Judge", "Lawyer", "Politician"],
+      "famousPeople": [
+        "Henry Ford",
+        "Judge Judy",
+        "John D. Rockefeller",
+        "Kamala Harris"
+      ]
+    },
+    "ESFJ": {
+      "name": "The Consul",
+      "description": "Extraordinarily caring, social and popular people, always eager to help.",
+      "strengths": [
+        "Strong practical skills",
+        "Loyal and sensitive",
+        "Good at connecting with others",
+        "Warm-hearted and generous",
+        "Strong sense of duty"
+      ],
+      "weaknesses": [
+        "Worried about their social status",
+        "Inflexible",
+        "Vulnerable to criticism",
+        "Always need to be in control",
+        "Reluctant to innovate or improvise"
+      ],
+      "careers": ["Teacher", "Nurse", "Social worker", "Counselor", "Manager"],
+      "famousPeople": [
+        "Taylor Swift",
+        "Bill Clinton",
+        "Sally Field",
+        "Danny Glover"
+      ]
+    },
+    "ISTP": {
+      "name": "The Virtuoso",
+      "description": "Bold and practical experimenters, masters of all kinds of tools.",
+      "strengths": [
+        "Optimistic and creative",
+        "Practical and hands-on",
+        "Spontaneous and rational",
+        "Know how to prioritize",
+        "Great in a crisis"
+      ],
+      "weaknesses": [
+        "Stubborn",
+        "Insensitive",
+        "Private and reserved",
+        "Easily bored",
+        "Dislike commitment"
+      ],
+      "careers": ["Engineer", "Mechanic", "Pilot", "Firefighter", "Programmer"],
+      "famousPeople": [
+        "Tom Cruise",
+        "Clint Eastwood",
+        "Michael Jordan",
+        "Tiger Woods"
+      ]
+    },
+    "ISFP": {
+      "name": "The Adventurer",
+      "description": "Flexible and charming artists, always ready to explore new possibilities.",
+      "strengths": [
+        "Charming",
+        "Sensitive to others",
+        "Imaginative",
+        "Passionate",
+        "Curious"
+      ],
+      "weaknesses": [
+        "Fiercely independent",
+        "Unpredictable",
+        "Easily stressed",
+        "Overly competitive",
+        "Function in the moment"
+      ],
+      "careers": [
+        "Artist",
+        "Designer",
+        "Musician",
+        "Photographer",
+        "Counselor"
+      ],
+      "famousPeople": ["Michael Jackson", "Mozart", "Frida Kahlo", "Bob Dylan"]
+    },
+    "ESTP": {
+      "name": "The Entrepreneur",
+      "description": "Smart, energetic and very perceptive people, truly enjoy living on the edge.",
+      "strengths": [
+        "Bold and rational",
+        "Practical and original",
+        "Perceptive",
+        "Direct",
+        "Sociable"
+      ],
+      "weaknesses": [
+        "Sensitive",
+        "Risk-prone",
+        "Unstructured",
+        "Impatient",
+        "May miss the bigger picture"
+      ],
+      "careers": [
+        "Entrepreneur",
+        "Actor",
+        "Sales representative",
+        "Athlete",
+        "Emergency responder"
+      ],
+      "famousPeople": [
+        "Ernest Hemingway",
+        "Donald Trump",
+        "Bruce Willis",
+        "Magic Johnson"
+      ]
+    },
+    "ESFP": {
+      "name": "The Entertainer",
+      "description": "Spontaneous, energetic and enthusiastic people - life is never boring around them.",
+      "strengths": [
+        "Bold",
+        "Original and aesthetic",
+        "Showmanship",
+        "Practical",
+        "Focused on the present"
+      ],
+      "weaknesses": [
+        "Sensitive",
+        "Conflict-averse",
+        "Easily bored",
+        "Poor long-term planning",
+        "Struggle to follow through"
+      ],
+      "careers": ["Actor", "Musician", "Teacher", "Counselor", "Event planner"],
+      "famousPeople": [
+        "Marilyn Monroe",
+        "Elvis Presley",
+        "Will Smith",
+        "Jamie Foxx"
+      ]
+    }
+  },
+  "results": {
+    "title": "Your Personality Type",
+    "description": "Based on your answers, here's your personality type:",
+    "shareResult": "Share your result",
+    "retakeTest": "Retake the test",
+    "learnMore": "Learn more about your type",
+    "compatibility": "Compatibility",
+    "careers": "Career suggestions",
+    "relationships": "Relationships",
+    "strengths": "Strengths",
+    "weaknesses": "Areas for growth",
+    "famousPeople": "Famous people with this type"
+  }
+}

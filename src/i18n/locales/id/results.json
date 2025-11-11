@@ -1,0 +1,435 @@
+{
+  "personalityTypes": {
+    "INTJ": {
+      "name": "Sang Arsitek",
+      "description": "Pemikir yang imajinatif dan strategis, dengan rencana untuk segalanya.",
+      "strengths": [
+        "Pikiran yang cepat dan imajinatif",
+        "Mandiri dan tegas",
+        "Bekerja keras dan tekun",
+        "Berpikiran terbuka",
+        "Percaya diri"
+      ],
+      "weaknesses": [
+        "Terlalu analitis",
+        "Tidak suka lingkungan yang sangat terstruktur",
+        "Tidak tahu menahu dalam percintaan",
+        "Mungkin tidak sensitif"
+      ],
+      "careers": ["Ilmuwan", "Insinyur", "Profesor", "Dokter", "Pengacara"],
+      "famousPeople": [
+        "Stephen Hawking",
+        "Elon Musk",
+        "Nikola Tesla",
+        "Isaac Newton"
+      ]
+    },
+    "INTP": {
+      "name": "Sang Pemikir",
+      "description": "Penemu yang inovatif dengan dahaga pengetahuan yang tak terpuaskan.",
+      "strengths": [
+        "Analis yang hebat",
+        "Imajinatif dan orisinal",
+        "Berpikiran terbuka",
+        "Antusias",
+        "Objektif"
+      ],
+      "weaknesses": [
+        "Sangat pribadi dan introvert",
+        "Tidak sensitif",
+        "Pelupa",
+        "Merendahkan",
+        "Tidak suka aturan"
+      ],
+      "careers": [
+        "Ilmuwan",
+        "Matematikawan",
+        "Filsuf",
+        "Arsitek",
+        "Programmer"
+      ],
+      "famousPeople": [
+        "Albert Einstein",
+        "Charles Darwin",
+        "Bill Gates",
+        "Marie Curie"
+      ]
+    },
+    "ENTJ": {
+      "name": "Sang Komandan",
+      "description": "Pemimpin yang berani, imajinatif dan berkehendak kuat, selalu menemukan cara atau membuatnya.",
+      "strengths": [
+        "Efisien",
+        "Bertenaga",
+        "Percaya diri",
+        "Berkehendak kuat",
+        "Pemikir strategis"
+      ],
+      "weaknesses": [
+        "Keras kepala dan dominan",
+        "Dingin dan kejam",
+        "Tidak sabar",
+        "Buruk dalam menangani emosi",
+        "Tidak toleran"
+      ],
+      "careers": ["CEO", "Pengusaha", "Politikus", "Pengacara", "Manajer"],
+      "famousPeople": [
+        "Steve Jobs",
+        "Napoleon Bonaparte",
+        "Winston Churchill",
+        "Margaret Thatcher"
+      ]
+    },
+    "ENTP": {
+      "name": "Sang Debat",
+      "description": "Pemikir yang cerdas dan penasaran yang tidak bisa menolak tantangan intelektual.",
+      "strengths": [
+        "Berpengetahuan",
+        "Pemikir cepat",
+        "Brainstormer yang luar biasa",
+        "Karismatik",
+        "Bertenaga"
+      ],
+      "weaknesses": [
+        "Sangat argumentatif",
+        "Tidak sensitif",
+        "Tidak toleran",
+        "Sulit fokus",
+        "Tidak suka hal-hal praktis"
+      ],
+      "careers": ["Pengusaha", "Jurnalis", "Aktor", "Komedian", "Penemu"],
+      "famousPeople": [
+        "Mark Twain",
+        "Thomas Edison",
+        "Walt Disney",
+        "Richard Feynman"
+      ]
+    },
+    "INFJ": {
+      "name": "Sang Advokat",
+      "description": "Perfeksionis yang kreatif dan berwawasan, terinspirasi dan mandiri.",
+      "strengths": [
+        "Kreatif",
+        "Berwawasan",
+        "Menginspirasi dan meyakinkan",
+        "Tegas",
+        "Tekun dan penuh semangat"
+      ],
+      "weaknesses": [
+        "Sensitif",
+        "Sangat pribadi",
+        "Perfeksionis",
+        "Selalu butuh tujuan",
+        "Bisa kelelahan"
+      ],
+      "careers": ["Konselor", "Penulis", "Guru", "Psikolog", "Seniman"],
+      "famousPeople": [
+        "Mother Teresa",
+        "Martin Luther King Jr.",
+        "Nelson Mandela",
+        "Jane Goodall"
+      ]
+    },
+    "INFP": {
+      "name": "Sang Mediator",
+      "description": "Orang yang puitis, baik hati dan altruistik, selalu bersemangat membantu tujuan yang baik.",
+      "strengths": [
+        "Idealistis",
+        "Setia pada nilai-nilai mereka",
+        "Penasaran dan cepat melihat kemungkinan",
+        "Fleksibel dan santai",
+        "Sangat kreatif dan artistik"
+      ],
+      "weaknesses": [
+        "Terlalu idealistis",
+        "Terlalu altruistik",
+        "Tidak terorganisir",
+        "Cenderung mengabaikan sisi keras kehidupan",
+        "Sulit dikenal"
+      ],
+      "careers": ["Penulis", "Seniman", "Konselor", "Guru", "Musisi"],
+      "famousPeople": [
+        "William Shakespeare",
+        "J.R.R. Tolkien",
+        "Johnny Depp",
+        "Princess Diana"
+      ]
+    },
+    "ENFJ": {
+      "name": "Sang Protagonis",
+      "description": "Pemimpin yang karismatik dan menginspirasi, mampu memesona pendengar mereka.",
+      "strengths": [
+        "Pemimpin alami",
+        "Sensitif terhadap perasaan orang",
+        "Penuh semangat dan karismatik",
+        "Altruistik",
+        "Bakat alami untuk berbicara di depan umum"
+      ],
+      "weaknesses": [
+        "Terlalu idealistis",
+        "Terlalu sensitif",
+        "Harga diri yang fluktuatif",
+        "Kesulitan membuat keputusan sulit",
+        "Bisa terlalu tidak mementingkan diri sendiri"
+      ],
+      "careers": ["Guru", "Konselor", "Politikus", "Aktor", "Penulis"],
+      "famousPeople": [
+        "Oprah Winfrey",
+        "Barack Obama",
+        "Maya Angelou",
+        "Dr. Phil"
+      ]
+    },
+    "ENFP": {
+      "name": "Sang Kampanye",
+      "description": "Jiwa bebas yang antusias, kreatif dan sosial, selalu siap menjelajahi kemungkinan baru.",
+      "strengths": [
+        "Antusias",
+        "Kreatif",
+        "Sosial dan jiwa bebas",
+        "Baik dalam berbagai hal",
+        "Setia dan peduli"
+      ],
+      "weaknesses": [
+        "Keterampilan praktis yang buruk",
+        "Sulit fokus",
+        "Terlalu banyak berpikir",
+        "Sangat emosional",
+        "Mandiri sampai salah"
+      ],
+      "careers": ["Aktor", "Jurnalis", "Guru", "Konselor", "Pengusaha"],
+      "famousPeople": [
+        "Robin Williams",
+        "Will Smith",
+        "Ellen DeGeneres",
+        "Robert Downey Jr."
+      ]
+    },
+    "ISTJ": {
+      "name": "Sang Logistik",
+      "description": "Praktis dan berorientasi fakta, dapat diandalkan dan bertanggung jawab.",
+      "strengths": [
+        "Jujur dan langsung",
+        "Berkehendak kuat dan berbakti",
+        "Sangat bertanggung jawab",
+        "Tenang dan praktis",
+        "Menciptakan dan menegakkan ketertiban"
+      ],
+      "weaknesses": [
+        "Keras kepala",
+        "Tidak sensitif",
+        "Selalu mengikuti aturan",
+        "Menghakimi",
+        "Menyalahkan diri sendiri secara tidak masuk akal"
+      ],
+      "careers": ["Akuntan", "Hakim", "Manajer", "Insinyur", "Dokter"],
+      "famousPeople": [
+        "George Washington",
+        "Angela Merkel",
+        "Warren Buffett",
+        "Henry Ford"
+      ]
+    },
+    "ISFJ": {
+      "name": "Sang Pelindung",
+      "description": "Pelindung yang sangat berdedikasi dan hangat, selalu siap membela orang yang mereka cintai.",
+      "strengths": [
+        "Mendukung",
+        "Dapat diandalkan dan sabar",
+        "Imajinatif dan teliti",
+        "Antusias",
+        "Setia dan bekerja keras"
+      ],
+      "weaknesses": [
+        "Rendah hati dan pemalu",
+        "Menekan perasaan mereka",
+        "Membebani diri sendiri",
+        "Enggan berubah",
+        "Terlalu altruistik"
+      ],
+      "careers": ["Perawat", "Guru", "Konselor", "Pekerja sosial", "Dokter"],
+      "famousPeople": [
+        "Mother Teresa",
+        "Kate Middleton",
+        "Jimmy Carter",
+        "Danny Glover"
+      ]
+    },
+    "ESTJ": {
+      "name": "Sang Eksekutif",
+      "description": "Administrator yang luar biasa, tak tertandingi dalam mengelola hal-hal atau orang.",
+      "strengths": [
+        "Berdedikasi",
+        "Berkehendak kuat dan langsung",
+        "Setia dan sabar",
+        "Dapat diandalkan dan bertanggung jawab",
+        "Baik dalam menciptakan ketertiban"
+      ],
+      "weaknesses": [
+        "Tidak fleksibel dan keras kepala",
+        "Tidak nyaman dengan situasi yang tidak konvensional",
+        "Menghakimi",
+        "Terlalu fokus pada status sosial",
+        "Kesulitan mengekspresikan emosi"
+      ],
+      "careers": [
+        "Manajer",
+        "Administrator",
+        "Hakim",
+        "Pengacara",
+        "Politikus"
+      ],
+      "famousPeople": [
+        "Henry Ford",
+        "Judge Judy",
+        "John D. Rockefeller",
+        "Kamala Harris"
+      ]
+    },
+    "ESFJ": {
+      "name": "Sang Konsul",
+      "description": "Orang yang sangat peduli, sosial dan populer, selalu bersemangat membantu.",
+      "strengths": [
+        "Keterampilan praktis yang kuat",
+        "Setia dan sensitif",
+        "Baik dalam berhubungan dengan orang lain",
+        "Hangat dan murah hati",
+        "Rasa tanggung jawab yang kuat"
+      ],
+      "weaknesses": [
+        "Khawatir tentang status sosial mereka",
+        "Tidak fleksibel",
+        "Rentan terhadap kritik",
+        "Selalu perlu mengontrol",
+        "Enggan berinovasi atau berimprovisasi"
+      ],
+      "careers": ["Guru", "Perawat", "Pekerja sosial", "Konselor", "Manajer"],
+      "famousPeople": [
+        "Taylor Swift",
+        "Bill Clinton",
+        "Sally Field",
+        "Danny Glover"
+      ]
+    },
+    "ISTP": {
+      "name": "Sang Virtuoso",
+      "description": "Eksperimenter yang berani dan praktis, master dari segala jenis alat.",
+      "strengths": [
+        "Optimis dan kreatif",
+        "Praktis dan hands-on",
+        "Spontan dan rasional",
+        "Tahu cara memprioritaskan",
+        "Hebat dalam krisis"
+      ],
+      "weaknesses": [
+        "Keras kepala",
+        "Tidak sensitif",
+        "Pribadi dan tertutup",
+        "Mudah bosan",
+        "Tidak suka komitmen"
+      ],
+      "careers": [
+        "Insinyur",
+        "Mekanik",
+        "Pilot",
+        "Pemadam kebakaran",
+        "Programmer"
+      ],
+      "famousPeople": [
+        "Tom Cruise",
+        "Clint Eastwood",
+        "Michael Jordan",
+        "Tiger Woods"
+      ]
+    },
+    "ISFP": {
+      "name": "Sang Petualang",
+      "description": "Seniman yang fleksibel dan menawan, selalu siap menjelajahi kemungkinan baru.",
+      "strengths": [
+        "Menawan",
+        "Sensitif terhadap orang lain",
+        "Imajinatif",
+        "Penuh semangat",
+        "Penasaran"
+      ],
+      "weaknesses": [
+        "Sangat mandiri",
+        "Tidak dapat diprediksi",
+        "Mudah stres",
+        "Terlalu kompetitif",
+        "Berfungsi pada saat ini"
+      ],
+      "careers": ["Seniman", "Desainer", "Musisi", "Fotografer", "Konselor"],
+      "famousPeople": ["Michael Jackson", "Mozart", "Frida Kahlo", "Bob Dylan"]
+    },
+    "ESTP": {
+      "name": "Sang Pengusaha",
+      "description": "Orang yang cerdas, bertenaga dan sangat perseptif, benar-benar menikmati hidup di tepi.",
+      "strengths": [
+        "Berani dan rasional",
+        "Praktis dan orisinal",
+        "Perseptif",
+        "Langsung",
+        "Sosial"
+      ],
+      "weaknesses": [
+        "Sensitif",
+        "Berisiko",
+        "Tidak terstruktur",
+        "Tidak sabar",
+        "Mungkin melewatkan gambaran besar"
+      ],
+      "careers": [
+        "Pengusaha",
+        "Aktor",
+        "Sales representative",
+        "Atlet",
+        "Emergency responder"
+      ],
+      "famousPeople": [
+        "Ernest Hemingway",
+        "Donald Trump",
+        "Bruce Willis",
+        "Magic Johnson"
+      ]
+    },
+    "ESFP": {
+      "name": "Sang Penghibur",
+      "description": "Orang yang spontan, bertenaga dan antusias - hidup tidak pernah membosankan di sekitar mereka.",
+      "strengths": [
+        "Berani",
+        "Orisinal dan estetis",
+        "Showmanship",
+        "Praktis",
+        "Fokus pada saat ini"
+      ],
+      "weaknesses": [
+        "Sensitif",
+        "Menghindari konflik",
+        "Mudah bosan",
+        "Perencanaan jangka panjang yang buruk",
+        "Kesulitan mengikuti"
+      ],
+      "careers": ["Aktor", "Musisi", "Guru", "Konselor", "Event planner"],
+      "famousPeople": [
+        "Marilyn Monroe",
+        "Elvis Presley",
+        "Will Smith",
+        "Jamie Foxx"
+      ]
+    }
+  },
+  "results": {
+    "title": "Tipe Kepribadian Anda",
+    "description": "Berdasarkan jawaban Anda, berikut adalah tipe kepribadian Anda:",
+    "shareResult": "Bagikan hasil Anda",
+    "retakeTest": "Ulangi tes",
+    "learnMore": "Pelajari lebih lanjut tentang tipe Anda",
+    "compatibility": "Kecocokan",
+    "careers": "Saran karier",
+    "relationships": "Hubungan",
+    "strengths": "Kekuatan",
+    "weaknesses": "Area untuk berkembang",
+    "famousPeople": "Tokoh terkenal dengan tipe ini"
+  }
+}

@@ -16,43 +16,48 @@ const GetOtherPatch9: React.FC = () => {
     navigate("/get-other-patch-8");
   };
 
-  const options = ["EASY TO GET<br/>TO KNOW", "HARD TO GET<br/>TO KNOW"];
+  const options = ["EASY TO GET TO KNOW", "HARD TO GET TO KNOW"];
 
   return (
     <div className="get-other-patch9-template">
       {/* X button in top left */}
-      <button className="get-other-patch9-x-button" onClick={handleBack}>
+      <button className="get-other-patch3-x-button" onClick={handleBack}>
         ×
       </button>
 
       {/* Step indicator in top right */}
-      <div className="get-other-patch9-step-indicator">09</div>
+      <div className="get-other-patch3-step-indicator">09</div>
 
-      {/* Light grey content container */}
-      <div className="get-other-patch9-content-container">
-        {/* Main question */}
-        <div className="get-other-patch9-question">
-          <div className="get-other-patch9-question-line">ARE YOU...</div>
-        </div>
+      {/* Main question */}
+      <div className="get-other-patch3-question">
+        <div className="get-other-patch3-question-line">ARE YOU...</div>
+      </div>
 
-        {/* White options container */}
-        <div className="get-other-patch9-options-container">
-          {options.map((option, index) => (
-            <div
-              key={index}
-              className={`get-other-patch9-option-box ${
-                selectedOption === option ? "selected" : ""
-              }`}
-              onClick={() => setSelectedOption(option)}
-              dangerouslySetInnerHTML={{ __html: option }}
-            ></div>
-          ))}
-        </div>
+      {/* Image below title */}
+      <img
+        src="/n9.webp"
+        alt="Character illustration"
+        className="get-other-patch9-image"
+      />
+
+      {/* Options container */}
+      <div className="get-other-patch3-options-container">
+        {options.map((option, index) => (
+          <div
+            key={index}
+            className={`get-other-patch3-option-box ${
+              selectedOption === option ? "selected" : ""
+            }`}
+            onClick={() => setSelectedOption(option)}
+          >
+            {option}
+          </div>
+        ))}
       </div>
 
       {/* NEXT button at bottom */}
       <button
-        className="get-other-patch9-next-button"
+        className="get-other-patch3-next-button"
         onClick={handleNext}
         disabled={!selectedOption}
         style={{ opacity: !selectedOption ? 0.6 : 1 }}
