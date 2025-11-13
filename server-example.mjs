@@ -189,8 +189,11 @@ app.post("/api/process-order", async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+const HOST = process.env.HOST || '0.0.0.0'; // Listen on all network interfaces
+
+app.listen(PORT, HOST, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server accessible on network at http://0.0.0.0:${PORT}`);
   console.log(`Google Sheets ID: ${GOOGLE_CREDENTIALS.sheets_id}`);
   console.log(
     `Cloudinary configured: ${process.env.CLOUDINARY_CLOUD_NAME ? "Yes" : "No"}`

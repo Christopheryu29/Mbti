@@ -38,6 +38,10 @@ const PhoneInput: React.FC = () => {
             placeholder=""
             className="phone-input-field"
             autoFocus
+            inputMode="tel"
+            autoComplete="tel"
+            autoCapitalize="off"
+            autoCorrect="off"
           />
         </div>
 
