@@ -25,7 +25,7 @@ const ComingSoon: React.FC = () => {
       <button className="coming-soon-back-button" onClick={handleBack}>
         ×
       </button>
-      
+
       <div className="coming-soon-content">
         <div className="coming-soon-shapes">
           <div className="shape shape-1"></div>
@@ -34,7 +34,7 @@ const ComingSoon: React.FC = () => {
           <div className="shape shape-4"></div>
           <div className="shape shape-5"></div>
         </div>
-        
+
         <div className="coming-soon-text-container">
           <h1 className="coming-soon-title">COMING SOON</h1>
           <p className="coming-soon-subtitle">
@@ -48,4 +48,3 @@ const ComingSoon: React.FC = () => {
 };
 
 export default ComingSoon;
-

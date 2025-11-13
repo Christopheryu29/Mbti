@@ -11,8 +11,13 @@ export interface CompleteOrderData {
   phone: string;
   address: string;
   personalityType: string;
+  itemType: string; // "shirt" or "cap"
+  color: string;
+  size?: string; // Only for shirts
   template: string;
   position?: string;
+  price: number;
+  orderSummary: string; // Formatted summary like "T-shirt Black S-M Sleeve Left"
   paymentImage: File;
 }
 

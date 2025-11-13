@@ -17,7 +17,7 @@ const DesignShirt: React.FC = () => {
       updateUserData({
         shirtDesign: {
           template: selectedTemplate,
-          position: selectedPosition || undefined,
+          position: selectedPosition || "middle",
         },
       });
 
@@ -33,7 +33,9 @@ const DesignShirt: React.FC = () => {
   const handleTemplateSelect = (template: string) => {
     setSelectedTemplate(template);
     if (template === "middle") {
-      setSelectedPosition(""); // Clear position for middle template
+      setSelectedPosition("middle");
+    } else {
+      setSelectedPosition(""); // Clear position for other templates
     }
   };
 
@@ -59,21 +61,33 @@ const DesignShirt: React.FC = () => {
               className={`shirt-template ${
                 selectedTemplate === "middle" ? "selected" : ""
               }`}
-              onClick={() => handleTemplateSelect("middle")}
+              onClick={() => {
+                setSelectedTemplate("middle");
+                setSelectedPosition("middle");
+              }}
             >
-              <div className="shirt-body">
-                <div className="shirt-collar"></div>
-                <div className="shirt-sleeves">
-                  <div className="sleeve left-sleeve"></div>
-                  <div className="sleeve right-sleeve"></div>
-                </div>
-                <div className="shirt-hem"></div>
-                <div className="patch-placeholder middle-patch">
-                  <div className="patch-text">PATCH HERE</div>
-                </div>
-              </div>
+              <img
+                src="/13-removebg-preview.png"
+                alt="Middle Template"
+                className="shirt-template-image"
+              />
             </div>
-            <div className="template-label">MIDDLE</div>
+            <div className="position-buttons">
+              <button
+                className={`position-button ${
+                  selectedTemplate === "middle" && selectedPosition === "middle"
+                    ? "selected"
+                    : ""
+                }`}
+                onClick={() => {
+                  setSelectedTemplate("middle");
+                  setSelectedPosition("middle");
+                }}
+              >
+                MIDDLE
+              </button>
+            </div>
+            <div className="choose-text">*CHOOSE*</div>
           </div>
 
           {/* Chest Template */}
@@ -84,19 +98,13 @@ const DesignShirt: React.FC = () => {
               }`}
               onClick={() => handleTemplateSelect("chest")}
             >
-              <div className="shirt-body">
-                <div className="shirt-collar"></div>
-                <div className="shirt-sleeves">
-                  <div className="sleeve left-sleeve"></div>
-                  <div className="sleeve right-sleeve"></div>
-                </div>
-                <div className="shirt-hem"></div>
-                <div className="patch-placeholder chest-patch">
-                  <div className="patch-text">PATCH HERE</div>
-                </div>
-              </div>
+              <img
+                src="/14-removebg-preview.png"
+                alt="Chest Template"
+                className="shirt-template-image"
+              />
             </div>
-            <div className="template-label">LEFT</div>
+
             <div className="position-buttons">
               <button
                 className={`position-button ${
@@ -133,17 +141,11 @@ const DesignShirt: React.FC = () => {
               }`}
               onClick={() => handleTemplateSelect("sleeve")}
             >
-              <div className="shirt-body">
-                <div className="shirt-collar"></div>
-                <div className="shirt-sleeves">
-                  <div className="sleeve left-sleeve"></div>
-                  <div className="sleeve right-sleeve"></div>
-                </div>
-                <div className="shirt-hem"></div>
-                <div className="patch-placeholder sleeve-patch">
-                  <div className="patch-text">PATCH HERE</div>
-                </div>
-              </div>
+              <img
+                src="/15-removebg-preview.png"
+                alt="Sleeve Template"
+                className="shirt-template-image"
+              />
             </div>
             <div className="template-label">SLEEVE</div>
             <div className="position-buttons">

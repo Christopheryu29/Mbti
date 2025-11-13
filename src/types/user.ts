@@ -10,6 +10,15 @@ export interface UserData {
   paymentInfo?: PaymentInfo;
   appointmentDate?: string;
   selectedOtherPatches?: string[];
+  selectedItem?: SelectedItem;
+}
+
+export interface SelectedItem {
+  type: "shirt" | "cap";
+  index?: number;
+  color?: string;
+  size?: string;
+  price?: number; // Price in thousands (e.g., 150 = 150k)
 }
 
 export interface TestResults {

@@ -51,8 +51,13 @@ export class ApiService {
         phone: orderData.phone,
         address: orderData.address,
         personalityType: orderData.personalityType,
+        itemType: orderData.itemType,
+        color: orderData.color,
+        size: orderData.size || "",
         template: orderData.template,
         position: orderData.position || "",
+        price: orderData.price,
+        orderSummary: orderData.orderSummary,
         paymentImage: imageBase64,
       };
 

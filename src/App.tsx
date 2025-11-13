@@ -54,6 +54,9 @@ import MBTIScoringResult from "./components/MBTIScoringResult";
 import PersonalizedPatch from "./components/PersonalizedPatch";
 import ChooseOwnPatch from "./components/ChooseOwnPatch";
 import ComingSoon from "./components/ComingSoon";
+import SelectItem from "./components/SelectItem";
+import SelectCapColor from "./components/SelectCapColor";
+import SelectShirtColor from "./components/SelectShirtColor";
 import "./App.css";
 
 function App() {
@@ -144,6 +147,12 @@ function App() {
               />
               <Route path="/choose-own-patch" element={<ChooseOwnPatch />} />
               <Route path="/coming-soon" element={<ComingSoon />} />
+              <Route path="/select-item" element={<SelectItem />} />
+              <Route path="/select-cap-color" element={<SelectCapColor />} />
+              <Route
+                path="/select-shirt-color"
+                element={<SelectShirtColor />}
+              />
             </Routes>
           </div>
         </Router>

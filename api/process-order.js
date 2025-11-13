@@ -71,7 +71,20 @@ export default async function handler(req, res) {
 
   try {
     console.log("Received process-order request");
-    const { name, phone, address, personalityType, template, position, paymentImage } = req.body;
+    const { 
+      name, 
+      phone, 
+      address, 
+      personalityType, 
+      itemType,
+      color,
+      size,
+      template, 
+      position, 
+      price,
+      orderSummary,
+      paymentImage 
+    } = req.body;
 
     // Validate required fields
     if (!name || !phone || !address || !personalityType) {
@@ -121,22 +134,29 @@ export default async function handler(req, res) {
     const spreadsheetId = process.env.GOOGLE_SHEETS_ID || "1Zvq4LzomnEwRCS_qOyMPGhzeKglHTXAWwmdJoFdNzqg";
     console.log("Spreadsheet ID:", spreadsheetId);
 
+    // Prepare complete order data for Google Sheets
+    // Columns: Name, Phone, Address, Personality Type, Item Type, Color, Size, Template, Position, Price, Order Summary, Payment Image URL, Timestamp
     const values = [
       [
-        name,
-        phone,
-        address,
-        personalityType,
-        template,
+        name || "",
+        phone || "",
+        address || "",
+        personalityType || "",
+        itemType || "",
+        color || "",
+        size || "",
+        template || "",
         position || "",
-        cloudinaryResponse.secure_url,
+        price || 0,
+        orderSummary || "",
+        cloudinaryResponse.secure_url || "",
         new Date().toISOString(),
       ],
     ];
 
     const sheetsResponse = await sheets.spreadsheets.values.append({
       spreadsheetId: spreadsheetId,
-      range: "User Data!A:H",
+      range: "User Data!A:M", // Updated range to include all columns
       valueInputOption: "RAW",
       requestBody: {
         values: values,

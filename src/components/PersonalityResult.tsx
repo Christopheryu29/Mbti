@@ -9,22 +9,22 @@ const PersonalityResult: React.FC = () => {
 
   const personalityData = {
     green: {
-      title: "THE HARMONIZER",
+      title: "HARMONIZER",
       description:
         "They lead with empathy and intuition, always seeking meaning and connection. They bring warmth and understanding wherever they go.",
     },
     purple: {
-      title: "THE BRAINIACS",
+      title: "BRAINIACS",
       description:
         "They live in their heads analyzing, creating systems, and seeing patterns no one else notices. Logic is their playground.",
     },
     yellow: {
-      title: "THE WANDERERS",
+      title: "WANDERERS",
       description:
         "They live for the moment, embracing new experiences and spontaneity. Rules? Optional. Fun? Guaranteed.",
     },
     blue: {
-      title: "THE GUARDIANS",
+      title: "GUARDIANS",
       description:
         "Grounded, dependable, and loyal they keep things running smoothly and make sure everyone's safe, steady, and supported.",
     },
@@ -36,7 +36,7 @@ const PersonalityResult: React.FC = () => {
 
   const handleClaimOrder = () => {
     setHasSelectedAction(true);
-    navigate("/design-shirt");
+    navigate("/select-item");
   };
 
   const handleGetOtherPatch = () => {
@@ -66,6 +66,10 @@ const PersonalityResult: React.FC = () => {
       >
         {currentPersonality === "yellow" && (
           <>
+            <div className="wanderer-bubble"></div>
+            <div className="wanderer-bubble"></div>
+            <div className="wanderer-bubble"></div>
+            <div className="wanderer-bubble"></div>
             <img
               src="/wanderers1.webp"
               alt="Wanderers Character"
@@ -97,6 +101,10 @@ const PersonalityResult: React.FC = () => {
         )}
         {currentPersonality === "purple" && (
           <>
+            <div className="brainiac-bubble"></div>
+            <div className="brainiac-bubble"></div>
+            <div className="brainiac-bubble"></div>
+            <div className="brainiac-bubble"></div>
             <img
               src="/brainiacs.webp"
               alt="Brainiacs Character"
@@ -128,6 +136,10 @@ const PersonalityResult: React.FC = () => {
         )}
         {currentPersonality === "blue" && (
           <>
+            <div className="guardian-bubble"></div>
+            <div className="guardian-bubble"></div>
+            <div className="guardian-bubble"></div>
+            <div className="guardian-bubble"></div>
             <img
               src="/guardians.webp"
               alt="Guardians Character"
@@ -159,6 +171,10 @@ const PersonalityResult: React.FC = () => {
         )}
         {currentPersonality === "green" && (
           <>
+            <div className="harmonizer-bubble-decorative"></div>
+            <div className="harmonizer-bubble-decorative"></div>
+            <div className="harmonizer-bubble-decorative"></div>
+            <div className="harmonizer-bubble-decorative"></div>
             <img
               src="/harmonizer.webp"
               alt="Harmonizer Character"
