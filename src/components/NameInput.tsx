@@ -10,7 +10,7 @@ const NameInput: React.FC = () => {
   const handleNext = () => {
     if (name.trim()) {
       updateUserData({ name: name.trim() });
-      navigate("/phone");
+      navigate("/mbti-check");
     }
   };
 

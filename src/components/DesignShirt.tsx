@@ -21,8 +21,8 @@ const DesignShirt: React.FC = () => {
         },
       });
 
-      // Navigate to payment page
-      navigate("/payment");
+      // Navigate to phone page (before payment)
+      navigate("/phone");
     }
   };
 

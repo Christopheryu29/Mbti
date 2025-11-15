@@ -113,10 +113,9 @@ const MBTIInput: React.FC = () => {
           FORGOT
         </button>
         <button
-          className="mbti-input-next-button"
+          className={`mbti-input-next-button ${mbti.trim() ? "enabled" : "disabled"}`}
           onClick={handleNext}
           disabled={!mbti.trim()}
-          style={{ opacity: !mbti.trim() ? 0.6 : 1 }}
         >
           NEXT
         </button>

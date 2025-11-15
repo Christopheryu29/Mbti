@@ -10,7 +10,7 @@ const AddressInput: React.FC = () => {
   const handleNext = () => {
     if (address.trim()) {
       updateUserData({ address: address.trim() });
-      navigate("/mbti-check");
+      navigate("/payment");
     }
   };
 

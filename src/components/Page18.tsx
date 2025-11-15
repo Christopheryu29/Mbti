@@ -63,6 +63,8 @@ const Page18: React.FC = () => {
         />
       </div>
 
+      {/* Bottom character group - moved before options */}
+
       {/* Options container */}
       <div className="page18-options-container">
         {options.map((option, index) => (
@@ -77,8 +79,6 @@ const Page18: React.FC = () => {
           </div>
         ))}
       </div>
-
-      {/* Bottom character group */}
       <div className="page18-bottom-characters">
         <img
           src="/cropped-img10b.webp"

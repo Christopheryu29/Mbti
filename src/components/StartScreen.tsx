@@ -6,7 +6,7 @@ const StartScreen: React.FC = () => {
 
   const handleStart = () => {
     console.log("Start button clicked!");
-    navigate("/language-selector");
+    navigate("/name");
   };
 
   console.log("StartScreen is rendering");
@@ -15,7 +15,7 @@ const StartScreen: React.FC = () => {
     <div className="image-screen">
       <div className="image-container">
         <img
-          src="/1.jpg"
+          src="Copy of WEBSITE LSP (1).svg"
           alt="QUA BUDS Landing Page"
           className="landing-image"
           onClick={handleStart}
