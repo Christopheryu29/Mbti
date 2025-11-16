@@ -623,7 +623,6 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   pointer-events: auto;
   border: 3px solid #2196f3;
 }
@@ -699,7 +698,6 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   pointer-events: auto;
 }
 
@@ -1194,7 +1192,6 @@ body {
   cursor: pointer;
   margin-top: 15px;
   box-shadow: 0 6px 0 #004aad, 0 8px 15px rgba(0, 0, 0, 0.1);
-  text-shadow: 2px 2px 0 #004aad;
   width: 100%;
   max-width: 290px;
   transition: all 0.3s ease;
@@ -1502,7 +1499,6 @@ body {
   padding: clamp(20px, 4vw, 25px);
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
   min-height: 60px;
   display: flex;
   align-items: center;
@@ -1541,14 +1537,12 @@ body {
 .page9-option-box:hover {
   transform: translateY(-2px) scale(1.02);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  animation: buttonPulse 0.6s ease-in-out;
 }
 
 .page9-option-box.selected {
   background: #004aad;
   color: white;
   box-shadow: 0 4px 15px rgba(0, 74, 173, 0.3);
-  animation: selectionPulse 0.6s ease-in-out;
 }
 
 .page9-next-button {
@@ -1812,7 +1806,6 @@ body {
   padding: clamp(20px, 4vw, 25px);
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
   min-height: 60px;
   display: flex;
   align-items: center;
@@ -1851,14 +1844,12 @@ body {
 .page10-option-box:hover {
   transform: translateY(-2px) scale(1.02);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  animation: buttonPulse 0.6s ease-in-out;
 }
 
 .page10-option-box.selected {
   background: #004aad;
   color: white;
   box-shadow: 0 4px 15px rgba(0, 74, 173, 0.3);
-  animation: selectionPulse 0.6s ease-in-out;
 }
 
 .page10-next-button {
@@ -2087,7 +2078,6 @@ body {
   padding: clamp(20px, 4vw, 25px);
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
   min-height: 60px;
   display: flex;
   align-items: center;
@@ -2126,14 +2116,12 @@ body {
 .page11-option-box:hover {
   transform: translateY(-2px) scale(1.02);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  animation: buttonPulse 0.6s ease-in-out;
 }
 
 .page11-option-box.selected {
   background: #004aad;
   color: white;
   box-shadow: 0 4px 15px rgba(0, 74, 173, 0.3);
-  animation: selectionPulse 0.6s ease-in-out;
 }
 
 .page11-next-button {
@@ -2538,7 +2526,6 @@ body {
   padding: clamp(20px, 4vw, 25px);
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
   min-height: 60px;
   display: flex;
   align-items: center;
@@ -2577,14 +2564,12 @@ body {
 .page12-option-box:hover {
   transform: translateY(-2px) scale(1.02);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  animation: buttonPulse 0.6s ease-in-out;
 }
 
 .page12-option-box.selected {
   background: #004aad;
   color: white;
   box-shadow: 0 4px 15px rgba(0, 74, 173, 0.3);
-  animation: selectionPulse 0.6s ease-in-out;
 }
 
 .page12-next-button {
@@ -3052,7 +3037,6 @@ body {
   padding: clamp(20px, 4vw, 25px);
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
   min-height: 60px;
   display: flex;
   align-items: center;
@@ -3085,7 +3069,6 @@ body {
 .page13-option-box:hover {
   transform: translateY(-2px) scale(1.02);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  animation: buttonPulse 0.6s ease-in-out;
 }
 
 .page13-option-box.selected {
@@ -3093,7 +3076,6 @@ body {
   color: white;
   border-color: #004aad;
   box-shadow: 0 4px 15px rgba(0, 74, 173, 0.3);
-  animation: selectionPulse 0.6s ease-in-out;
 }
 
 .page13-next-button {
@@ -3234,14 +3216,12 @@ body {
   .page13-option-box:hover {
     transform: translateY(-2px) scale(1.02);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    animation: buttonPulse 0.6s ease-in-out;
   }
 
   .page13-option-box.selected {
     background: #004aad;
     color: white;
     box-shadow: 0 4px 15px rgba(0, 74, 173, 0.3);
-    animation: selectionPulse 0.6s ease-in-out;
   }
 
   .page13-next-button {
@@ -3535,7 +3515,6 @@ body {
   padding: clamp(20px, 4vw, 25px);
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
   min-height: 60px;
   display: flex;
   align-items: center;
@@ -3568,7 +3547,6 @@ body {
 .page14-option-box:hover {
   transform: translateY(-2px) scale(1.02);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  animation: buttonPulse 0.6s ease-in-out;
 }
 
 .page14-option-box.selected {
@@ -3576,7 +3554,6 @@ body {
   color: white;
   border-color: #004aad;
   box-shadow: 0 4px 15px rgba(0, 74, 173, 0.3);
-  animation: selectionPulse 0.6s ease-in-out;
 }
 
 .page14-bottom-characters {
@@ -3934,14 +3911,12 @@ body {
   .page14-option-box:hover {
     transform: translateY(-2px) scale(1.02);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    animation: buttonPulse 0.6s ease-in-out;
   }
 
   .page14-option-box.selected {
     background: #004aad;
     color: white;
     box-shadow: 0 4px 15px rgba(0, 74, 173, 0.3);
-    animation: selectionPulse 0.6s ease-in-out;
   }
 
   .page14-next-button {
@@ -4293,7 +4268,6 @@ body {
   padding: clamp(20px, 4vw, 25px);
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
   min-height: 60px;
   display: flex;
   align-items: center;
@@ -4488,14 +4462,12 @@ body {
   .page15-option-box:hover {
     transform: translateY(-2px) scale(1.02);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    animation: buttonPulse 0.6s ease-in-out;
   }
 
   .page15-option-box.selected {
     background: #004aad;
     color: white;
     box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);
-    animation: selectionPulse 0.6s ease-in-out;
   }
 
   .page15-next-button {
@@ -4904,7 +4876,6 @@ body {
   padding: clamp(20px, 4vw, 25px);
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
   min-height: 60px;
   display: flex;
   align-items: center;
@@ -5057,14 +5028,12 @@ body {
   .page16-option-box:hover {
     transform: translateY(-2px) scale(1.02);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    animation: buttonPulse 0.6s ease-in-out;
   }
 
   .page16-option-box.selected {
     background: #004aad;
     color: white;
     box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);
-    animation: selectionPulse 0.6s ease-in-out;
   }
 
   .page16-next-button {
@@ -6299,6 +6268,7 @@ body {
   top: 120px;
   right: 20px;
   z-index: 5;
+  pointer-events: none;
 }
 
 /* Character image styles */
@@ -6399,7 +6369,8 @@ body {
   gap: 15px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
-  z-index: 1;
+  z-index: 10;
+  position: relative;
 }
 
 .page19-option-box {
@@ -6420,6 +6391,9 @@ body {
   font-weight: bold;
   color: #004aad;
   text-transform: uppercase;
+  position: relative;
+  z-index: 11;
+  pointer-events: auto;
 }
 
 .page19-option-box:hover {
@@ -6486,6 +6460,7 @@ body {
     top: 30px;
     right: -90px;
     z-index: 5;
+    pointer-events: none;
   }
 
   .page19-character-img {
@@ -6727,6 +6702,9 @@ body {
   justify-content: flex-end;
   margin: 20px 0 40px 0;
   padding-right: 20px;
+  pointer-events: none;
+  position: relative;
+  z-index: 0;
 }
 
 /* Character image styles */
@@ -6980,6 +6958,7 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
   z-index: 1;
+  position: relative;
 }
 
 .page20-option-box {
@@ -7000,6 +6979,9 @@ body {
   font-weight: bold;
   color: #004aad;
   text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
 }
 
 .page20-option-box:hover {
@@ -7067,7 +7049,8 @@ body {
     position: absolute;
     top: 30px;
     right: -50px;
-    z-index: 5;
+    z-index: 3;
+    pointer-events: none;
     animation: fadeInScale 0.8s ease-out 0.4s both;
   }
 
