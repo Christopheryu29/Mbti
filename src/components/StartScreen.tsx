@@ -12,15 +12,16 @@ const StartScreen: React.FC = () => {
   console.log("StartScreen is rendering");
 
   return (
-    <div className="image-screen">
+    <div className="image-screen" onClick={handleStart}>
       <div className="image-container">
         <img
-          src="Copy of WEBSITE LSP (1).svg"
+          src="Copy of WEBSITE LSP (2).svg"
           alt="QUA BUDS Landing Page"
           className="landing-image"
           onClick={handleStart}
         />
       </div>
+      <div className="tap-anywhere-text">TAP ANYWHERE</div>
     </div>
   );
 };

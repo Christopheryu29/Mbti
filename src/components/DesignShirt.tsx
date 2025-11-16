@@ -39,8 +39,18 @@ const DesignShirt: React.FC = () => {
     }
   };
 
-  const handlePositionSelect = (position: string) => {
+  const handlePositionSelect = (position: string, template?: string) => {
+    if (template) {
+      setSelectedTemplate(template);
+    }
     setSelectedPosition(position);
+  };
+
+  // Check if sleeve image should be active
+  const isSleeveActive = () => {
+    return (
+      selectedTemplate === "sleeve" && (selectedPosition === "left" || selectedPosition === "right")
+    );
   };
 
   return (
@@ -112,7 +122,7 @@ const DesignShirt: React.FC = () => {
                     ? "selected"
                     : ""
                 }`}
-                onClick={() => handlePositionSelect("left")}
+                onClick={() => handlePositionSelect("left", "chest")}
               >
                 LEFT
               </button>
@@ -122,7 +132,7 @@ const DesignShirt: React.FC = () => {
                     ? "selected"
                     : ""
                 }`}
-                onClick={() => handlePositionSelect("right")}
+                onClick={() => handlePositionSelect("right", "chest")}
               >
                 RIGHT
               </button>
@@ -138,7 +148,7 @@ const DesignShirt: React.FC = () => {
             <div
               className={`shirt-template ${
                 selectedTemplate === "sleeve" ? "selected" : ""
-              }`}
+              } ${isSleeveActive() ? "active" : ""}`}
               onClick={() => handleTemplateSelect("sleeve")}
             >
               <img
@@ -155,7 +165,7 @@ const DesignShirt: React.FC = () => {
                     ? "selected"
                     : ""
                 }`}
-                onClick={() => handlePositionSelect("left")}
+                onClick={() => handlePositionSelect("left", "sleeve")}
               >
                 LEFT
               </button>
@@ -165,7 +175,7 @@ const DesignShirt: React.FC = () => {
                     ? "selected"
                     : ""
                 }`}
-                onClick={() => handlePositionSelect("right")}
+                onClick={() => handlePositionSelect("right", "sleeve")}
               >
                 RIGHT
               </button>
