@@ -4,7 +4,11 @@ const Page48: React.FC = () => {
   return (
     <div className="image-screen">
       <div className="image-container">
-        <img src="/48.jpg" alt="Thank You" className="landing-image" />
+        <img
+          src="/WEBSITE LSP (2).svg"
+          alt="Thank You"
+          className="landing-image"
+        />
       </div>
     </div>
   );
