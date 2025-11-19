@@ -7,6 +7,7 @@ import NameInput from "./components/NameInput";
 import Page3 from "./components/Page3";
 import Page48 from "./components/Page48";
 import PhoneInput from "./components/PhoneInput";
+import DeliveryOption from "./components/DeliveryOption";
 import AddressInput from "./components/AddressInput";
 import MBTICheck from "./components/MBTICheck";
 import MBTIInput from "./components/MBTIInput";
@@ -72,6 +73,7 @@ function App() {
               <Route path="/3.jpg" element={<Page3 />} />
               <Route path="/48.jpg" element={<Page48 />} />
               <Route path="/phone" element={<PhoneInput />} />
+              <Route path="/delivery-option" element={<DeliveryOption />} />
               <Route path="/address" element={<AddressInput />} />
               <Route path="/mbti-check" element={<MBTICheck />} />
               <Route path="/mbti-input" element={<MBTIInput />} />

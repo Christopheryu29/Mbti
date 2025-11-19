@@ -11,6 +11,7 @@ export interface UserData {
   appointmentDate?: string;
   selectedOtherPatches?: string[];
   selectedItem?: SelectedItem;
+  deliveryType?: "pickup" | "delivery";
 }
 
 export interface SelectedItem {
