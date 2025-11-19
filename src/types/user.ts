@@ -20,6 +20,7 @@ export interface SelectedItem {
   color?: string;
   size?: string;
   price?: number; // Price in thousands (e.g., 150 = 150k)
+  hatType?: "hat" | "bucket_hat"; // For caps: "hat" = baseball cap, "bucket_hat" = bucket hat
 }
 
 export interface TestResults {

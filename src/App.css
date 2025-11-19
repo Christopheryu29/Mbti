@@ -15232,13 +15232,14 @@ body {
 .select-cap-color-page {
   min-height: 100vh;
   background: rgb(246, 244, 239);
-  padding: 20px;
-  padding-bottom: 100px;
+  padding: 15px;
+  padding-bottom: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 15px;
   position: relative;
+  justify-content: center;
 }
 
 .select-cap-color-back-button {
@@ -15269,17 +15270,18 @@ body {
 
 .select-cap-color-title {
   font-family: "Fredoka One", cursive;
-  font-size: clamp(40px, 9vw, 64px);
+  font-size: clamp(28px, 6vw, 40px);
   font-weight: 700;
   color: #004aad;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 3px;
-  margin-top: 60px;
+  letter-spacing: 2px;
+  margin-top: 10px;
+  margin-bottom: 5px;
   display: flex;
   flex-direction: column;
   gap: 0;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 
 .select-cap-color-title-line {
@@ -15295,21 +15297,38 @@ body {
   margin: 0 auto;
 }
 
+.select-cap-color-grid-two-columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.select-cap-color-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
 .select-cap-color-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .select-cap-color-image-wrapper {
   background: #e8e8e8;
-  border-radius: 15px;
-  padding: 20px;
+  border-radius: 12px;
+  padding: 12px;
   width: 100%;
-  max-width: 140px;
+  max-width: 110px;
   aspect-ratio: 1;
   display: flex;
   align-items: center;
@@ -15320,7 +15339,7 @@ body {
 }
 
 .select-cap-color-image-wrapper img {
-  width: 85%;
+  width: 80%;
   height: auto;
   max-width: 100%;
   object-fit: contain;
@@ -15340,16 +15359,16 @@ body {
 
 .select-cap-color-label {
   background: #ffffff;
-  border-radius: 12px;
-  padding: 10px 20px;
+  border-radius: 10px;
+  padding: 6px 12px;
   font-family: "Fredoka One", cursive;
-  font-size: clamp(18px, 3.5vw, 24px);
+  font-size: clamp(14px, 2.5vw, 18px);
   font-weight: 400;
   color: #004aad;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   text-align: center;
-  min-width: 100px;
+  min-width: 80px;
 }
 
 .select-cap-color-size-text {
@@ -15366,42 +15385,58 @@ body {
 /* Mobile Responsive */
 @media (max-width: 480px) {
   .select-cap-color-page {
-    padding: 15px;
-    padding-bottom: 100px;
-    gap: 20px;
+    padding: 10px;
+    padding-bottom: 70px;
+    gap: 10px;
+    justify-content: center;
   }
 
   .select-cap-color-back-button {
-    top: 15px;
-    right: 15px;
-    width: 40px;
-    height: 40px;
-    font-size: 24px;
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
   }
 
   .select-cap-color-title {
-    font-size: clamp(36px, 8vw, 48px);
-    margin-top: 50px;
-    letter-spacing: 2px;
+    font-size: clamp(24px, 5.5vw, 32px);
+    margin-top: 5px;
+    margin-bottom: 5px;
+    letter-spacing: 1.5px;
   }
 
   .select-cap-color-grid {
-    gap: 15px;
+    gap: 10px;
     max-width: 280px;
   }
 
+  .select-cap-color-grid-two-columns {
+    gap: 8px;
+    max-width: 320px;
+  }
+
+  .select-cap-color-column {
+    gap: 8px;
+  }
+
+  .select-cap-color-item {
+    gap: 4px;
+  }
+
   .select-cap-color-image-wrapper {
-    padding: 15px;
-    max-width: 120px;
+    padding: 10px;
+    max-width: 90px;
   }
 
   .select-cap-color-image-wrapper img {
-    width: 80%;
+    width: 75%;
   }
 
   .select-cap-color-label {
-    padding: 8px 16px;
-    font-size: 16px;
+    padding: 4px 10px;
+    font-size: 13px;
+    min-width: 70px;
   }
 
   .select-cap-color-size-text {
