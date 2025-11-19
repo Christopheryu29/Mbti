@@ -20,8 +20,8 @@ const SelectShirtColor: React.FC = () => {
   ];
 
   const sizes = [
-    { label: "S-M", value: "s-m" },
-    { label: "L-XL", value: "l-xl" },
+    { label: "S-M", value: "s-m", ld: "± 47CM" },
+    { label: "L-XL", value: "l-xl", ld: "± 51CM" },
   ];
 
   const handleNext = () => {
@@ -83,15 +83,17 @@ const SelectShirtColor: React.FC = () => {
 
       <div className="select-shirt-color-size-buttons">
         {sizes.map((size, index) => (
-          <button
-            key={index}
-            className={`select-shirt-color-size-button ${
-              selectedSize === size.value ? "selected" : ""
-            }`}
-            onClick={() => setSelectedSize(size.value)}
-          >
-            {size.label}
-          </button>
+          <div key={index} className="select-shirt-color-size-wrapper">
+            <button
+              className={`select-shirt-color-size-button ${
+                selectedSize === size.value ? "selected" : ""
+              }`}
+              onClick={() => setSelectedSize(size.value)}
+            >
+              {size.label}
+            </button>
+            <div className="select-shirt-color-size-ld">LD: {size.ld}</div>
+          </div>
         ))}
       </div>
 

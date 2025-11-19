@@ -56,7 +56,7 @@ const SelectItem: React.FC = () => {
             </div>
           ))}
         </div>
-        <div className="select-item-price">150K-160K</div>
+        <div className="select-item-price">129K-139K</div>
       </div>
 
       {/* Instruction Text */}
@@ -67,7 +67,7 @@ const SelectItem: React.FC = () => {
 
       {/* Cap Section */}
       <div className="select-item-card select-item-card-cap">
-        <div className="select-item-price cap-price">75K</div>
+        <div className="select-item-price cap-price">75K-80k</div>
         <div className="select-item-products cap-grid">
           {caps.map((cap, index) => (
             <div key={index} className="select-item-product cap-product">
