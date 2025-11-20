@@ -4,7 +4,7 @@ import { useFlow } from "../contexts/FlowContext";
 
 const Page20: React.FC = () => {
   const navigate = useNavigate();
-  const { addTestAnswer, calculatePersonalityType, updateUserData } = useFlow();
+  const { addTestAnswer, calculatePersonalityTypeWithTieBreakers, testAnswers, updateUserData } = useFlow();
   const [selectedOption, setSelectedOption] = useState<string>("");
 
   const handleNext = () => {
@@ -20,8 +20,12 @@ const Page20: React.FC = () => {
       const colorValue = optionToColorMap[selectedOption];
       addTestAnswer(12, colorValue); // Question 12 (tie-breaker, 2 points)
 
-      // Calculate final personality type and save to user data
-      const personalityType = calculatePersonalityType();
+      // Get question 11 answer from state (should already be stored)
+      const question11Answer = testAnswers.length >= 11 ? testAnswers[10] : undefined;
+
+      // Calculate final personality type with tie-breaker answers passed directly
+      // This avoids React state update timing issues
+      const personalityType = calculatePersonalityTypeWithTieBreakers(question11Answer, colorValue);
       updateUserData({ personalityType });
 
       // Navigate to personality result page
