@@ -1,19 +1,42 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useFlow } from "../contexts/FlowContext";
 
 const SelectItem: React.FC = () => {
   const navigate = useNavigate();
-  const [selectedCategory, setSelectedCategory] = useState<
-    "shirt" | "cap" | null
-  >(null);
+  const { updateUserData } = useFlow();
+  const [selectedShirt, setSelectedShirt] = useState<boolean>(false);
+  const [selectedCap, setSelectedCap] = useState<boolean>(false);
+
+  const handleShirtClick = () => {
+    setSelectedShirt(!selectedShirt);
+  };
+
+  const handleCapClick = () => {
+    setSelectedCap(!selectedCap);
+  };
 
   const handleNext = () => {
-    if (selectedCategory) {
-      if (selectedCategory === "cap") {
-        navigate("/select-cap-color");
-      } else if (selectedCategory === "shirt") {
-        navigate("/select-shirt-color");
-      }
+    if (!selectedShirt && !selectedCap) {
+      return; // At least one must be selected
+    }
+
+    const isBundle = selectedShirt && selectedCap;
+
+    // Store selection mode
+    updateUserData({
+      isBundle: isBundle,
+    });
+
+    if (isBundle) {
+      // Bundle: Start with shirt
+      navigate("/select-shirt-color");
+    } else if (selectedShirt) {
+      // Only shirt
+      navigate("/select-shirt-color");
+    } else if (selectedCap) {
+      // Only cap
+      navigate("/select-cap-color");
     }
   };
 
@@ -43,9 +66,9 @@ const SelectItem: React.FC = () => {
         </button>
         <button
           className={`select-item-category-button ${
-            selectedCategory === "shirt" ? "selected" : ""
+            selectedShirt ? "selected" : ""
           }`}
-          onClick={() => setSelectedCategory("shirt")}
+          onClick={handleShirtClick}
         >
           SHIRT
         </button>
@@ -56,7 +79,7 @@ const SelectItem: React.FC = () => {
             </div>
           ))}
         </div>
-        <div className="select-item-price">150K-160K</div>
+        <div className="select-item-price">129K-139K</div>
       </div>
 
       {/* Instruction Text */}
@@ -65,9 +88,14 @@ const SelectItem: React.FC = () => {
         <div className="select-item-instruction-line">ITEM</div>
       </div>
 
+      {/* Note */}
+      <div className="select-item-note">
+        You can select both items for a bundle discount!
+      </div>
+
       {/* Cap Section */}
       <div className="select-item-card select-item-card-cap">
-        <div className="select-item-price cap-price">75K</div>
+        <div className="select-item-price cap-price">75K-80k</div>
         <div className="select-item-products cap-grid">
           {caps.map((cap, index) => (
             <div key={index} className="select-item-product cap-product">
@@ -78,9 +106,9 @@ const SelectItem: React.FC = () => {
       </div>
       <button
         className={`select-item-category-button select-item-category-button-cap ${
-          selectedCategory === "cap" ? "selected" : ""
+          selectedCap ? "selected" : ""
         }`}
-        onClick={() => setSelectedCategory("cap")}
+        onClick={handleCapClick}
       >
         CAP
       </button>
@@ -89,7 +117,7 @@ const SelectItem: React.FC = () => {
       <button
         className="page20-next-button"
         onClick={handleNext}
-        disabled={!selectedCategory}
+        disabled={!selectedShirt && !selectedCap}
       >
         NEXT
       </button>

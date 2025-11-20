@@ -4,7 +4,7 @@ import { useFlow } from "../contexts/FlowContext";
 
 const DesignShirt: React.FC = () => {
   const navigate = useNavigate();
-  const { updateUserData } = useFlow();
+  const { updateUserData, userData } = useFlow();
   const [selectedTemplate, setSelectedTemplate] = useState<string>("");
   const [selectedPosition, setSelectedPosition] = useState<string>("");
 
@@ -21,8 +21,14 @@ const DesignShirt: React.FC = () => {
         },
       });
 
-      // Navigate to phone page (before payment)
-      navigate("/phone");
+      // Check if this is a bundle (user selected both shirt and cap)
+      if (userData.isBundle) {
+        // Bundle: Navigate to cap selection
+        navigate("/select-cap-color");
+      } else {
+        // Only shirt: Navigate to patches
+        navigate("/add-on-patches");
+      }
     }
   };
 

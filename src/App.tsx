@@ -7,6 +7,7 @@ import NameInput from "./components/NameInput";
 import Page3 from "./components/Page3";
 import Page48 from "./components/Page48";
 import PhoneInput from "./components/PhoneInput";
+import DeliveryOption from "./components/DeliveryOption";
 import AddressInput from "./components/AddressInput";
 import MBTICheck from "./components/MBTICheck";
 import MBTIInput from "./components/MBTIInput";
@@ -57,6 +58,7 @@ import ComingSoon from "./components/ComingSoon";
 import SelectItem from "./components/SelectItem";
 import SelectCapColor from "./components/SelectCapColor";
 import SelectShirtColor from "./components/SelectShirtColor";
+import AddOnPatches from "./components/AddOnPatches";
 import "./App.css";
 
 function App() {
@@ -72,6 +74,7 @@ function App() {
               <Route path="/3.jpg" element={<Page3 />} />
               <Route path="/48.jpg" element={<Page48 />} />
               <Route path="/phone" element={<PhoneInput />} />
+              <Route path="/delivery-option" element={<DeliveryOption />} />
               <Route path="/address" element={<AddressInput />} />
               <Route path="/mbti-check" element={<MBTICheck />} />
               <Route path="/mbti-input" element={<MBTIInput />} />
@@ -153,6 +156,7 @@ function App() {
                 path="/select-shirt-color"
                 element={<SelectShirtColor />}
               />
+              <Route path="/add-on-patches" element={<AddOnPatches />} />
             </Routes>
           </div>
         </Router>

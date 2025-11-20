@@ -8305,6 +8305,202 @@ body {
   }
 }
 
+/* Delivery Option Page Layout */
+.delivery-option-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f8f7f4;
+  padding: 20px;
+  position: relative;
+}
+
+.delivery-option-content-container {
+  padding: 80px 45px 40px 45px;
+  gap: 20px;
+  max-width: 290px;
+  min-height: auto;
+  border-radius: 30px;
+  border: 3px dashed #6b8e23;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  background: white;
+  margin: 0 auto;
+}
+
+.delivery-option-character {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -20px;
+}
+
+.delivery-option-character-img {
+  min-width: clamp(200px, 50vw, 280px);
+  height: auto;
+  margin-top: -40px;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+  transition: transform 0.3s ease;
+}
+
+.delivery-option-character-img:hover {
+  transform: scale(1.05);
+}
+
+.delivery-option-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.delivery-option-button {
+  background: white;
+  border: 3px solid #d4a574;
+  border-radius: 25px;
+  padding: 16px 35px;
+  font-family: "Fredoka One", cursive;
+  font-size: 18px;
+  font-weight: 800;
+  color: #d4a574;
+  cursor: pointer;
+  box-shadow: 0 6px 0 #d4a574, 0 8px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  transition: all 0.3s ease;
+  position: relative;
+  letter-spacing: 2px;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.delivery-option-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 #d4a574, 0 10px 20px rgba(0, 0, 0, 0.15);
+  color: #d4a574;
+  background: white;
+}
+
+.delivery-option-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 4px 0 #d4a574, 0 6px 12px rgba(0, 0, 0, 0.1);
+  color: #d4a574;
+  background: white;
+}
+
+.delivery-option-button:focus {
+  outline: none;
+  color: #d4a574;
+  background: white;
+}
+
+.delivery-option-button.selected {
+  background: #d4a574;
+  color: white;
+  box-shadow: 0 6px 0 #b8945f, 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.delivery-option-button.selected:hover {
+  box-shadow: 0 8px 0 #b8945f, 0 10px 20px rgba(0, 0, 0, 0.15);
+  background: #d4a574;
+  color: white;
+}
+
+/* Responsive adjustments for Delivery Option */
+@media (max-width: 480px) {
+  .delivery-option-page {
+    padding: 15px;
+    min-height: 100vh;
+    height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
+    background: #f8f7f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .delivery-option-content-container {
+    padding: 80px 45px 40px 45px;
+    gap: 20px;
+    max-width: 290px;
+    min-height: auto;
+    border-radius: 30px;
+    border: 3px dashed #d4a574;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    background: white;
+    margin: 0 auto;
+  }
+
+  .delivery-option-character-img {
+    min-width: 620px;
+    height: auto;
+    margin-top: -180px;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+    transition: transform 0.3s ease;
+  }
+
+  .delivery-option-character-img:hover {
+    transform: scale(1.05);
+  }
+
+  .delivery-option-buttons {
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .delivery-option-button {
+    padding: 16px 35px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    width: auto;
+    min-width: 200px;
+    max-width: 200px;
+  }
+
+  /* Additional mobile enhancements */
+  .delivery-option-content-container {
+    animation: slideInUp 0.6s ease-out;
+  }
+
+  .delivery-option-buttons {
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+  }
+
+  .delivery-option-character-img {
+    animation: fadeInScale 0.8s ease-out 0.6s both;
+  }
+}
+
+@media (min-width: 768px) {
+  .delivery-option-content-container {
+    padding: 90px 45px 55px 45px;
+    gap: 22px;
+    max-width: 400px;
+    min-height: 550px;
+    border-radius: 30px;
+    border: 3px dashed #d4a574;
+  }
+
+  .delivery-option-character {
+    margin-top: -25px;
+  }
+
+  .delivery-option-character-img {
+    width: 160px;
+  }
+
+  .delivery-option-button {
+    padding: 18px 45px;
+    font-size: 19px;
+    width: auto;
+    min-width: 220px;
+    max-width: 220px;
+  }
+}
+
 /* Personality Result Template Layout */
 .personality-result-template {
   min-height: 100vh;
@@ -10088,24 +10284,26 @@ body {
 
 .payment-header {
   text-align: center;
-  margin-bottom: 60px;
-}
-
-.payment-subtitle {
-  font-family: "Caveat Brush", cursive;
-  font-size: clamp(18px, 4.5vw, 24px);
-  color: #004aad;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  font-weight: bold;
+  margin-bottom: 40px;
 }
 
 .payment-title {
-  font-family: "Caveat Brush", cursive;
-  font-size: clamp(32px, 8vw, 48px);
+  font-family: "Fredoka One", cursive;
+  font-size: clamp(28px, 7vw, 42px);
   color: #004aad;
-  font-weight: bold;
+  font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.payment-note {
+  font-family: "Fredoka One", cursive;
+  font-size: clamp(14px, 3vw, 18px);
+  color: #004aad;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .order-summary-section {
@@ -10145,6 +10343,87 @@ body {
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
+}
+
+/* Payment Details Section */
+.payment-details-section {
+  background: white;
+  border-radius: 20px;
+  padding: 25px 30px;
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.payment-details-title {
+  font-family: "Fredoka One", cursive;
+  font-size: clamp(24px, 5.5vw, 32px);
+  color: #004aad;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.payment-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.payment-details-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Fredoka One", cursive;
+  font-size: clamp(16px, 3.5vw, 20px);
+  color: #004aad;
+}
+
+.payment-details-name {
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.payment-details-price {
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.payment-details-discount {
+  color: #004aad;
+}
+
+.payment-details-divider {
+  width: 100%;
+  height: 2px;
+  background: #004aad;
+  margin: 15px 0;
+  border-radius: 1px;
+}
+
+.payment-details-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Fredoka One", cursive;
+  font-size: clamp(20px, 4.5vw, 26px);
+  color: #004aad;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.payment-details-total-label {
+  font-weight: 700;
+}
+
+.payment-details-total-price {
+  font-weight: 700;
 }
 
 .upload-section {
@@ -10260,7 +10539,38 @@ body {
   }
 
   .payment-header {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+  }
+
+  .payment-title {
+    font-size: clamp(24px, 6vw, 36px);
+  }
+
+  .payment-note {
+    font-size: clamp(12px, 2.5vw, 16px);
+  }
+
+  .payment-details-section {
+    padding: 20px 25px;
+    margin-bottom: 25px;
+  }
+
+  .payment-details-title {
+    font-size: clamp(20px, 4.5vw, 28px);
+    margin-bottom: 15px;
+  }
+
+  .payment-details-item {
+    font-size: clamp(14px, 3vw, 18px);
+    gap: 10px;
+  }
+
+  .payment-details-divider {
+    margin: 12px 0;
+  }
+
+  .payment-details-total {
+    font-size: clamp(18px, 4vw, 24px);
   }
 
   .upload-section {
@@ -14894,6 +15204,16 @@ body {
   display: block;
 }
 
+.select-item-note {
+  font-family: "Fredoka One", cursive;
+  font-size: clamp(16px, 3vw, 20px);
+  font-weight: 400;
+  color: #004aad;
+  text-align: center;
+  padding: 0 20px;
+  line-height: 1.4;
+}
+
 .select-item-next-button {
   background: white;
   border: 1px solid #d0d0d0;
@@ -15021,6 +15341,12 @@ body {
     line-height: 1.1;
   }
 
+  .select-item-note {
+    font-size: 14px;
+    margin: 5px 0;
+    padding: 0 15px;
+  }
+
   .select-item-next-button {
     margin: 40px auto 0 auto;
     padding: clamp(20px, 4vw, 25px) clamp(30px, 8vw, 40px);
@@ -15036,13 +15362,14 @@ body {
 .select-cap-color-page {
   min-height: 100vh;
   background: rgb(246, 244, 239);
-  padding: 20px;
-  padding-bottom: 100px;
+  padding: 15px;
+  padding-bottom: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 15px;
   position: relative;
+  justify-content: center;
 }
 
 .select-cap-color-back-button {
@@ -15073,17 +15400,18 @@ body {
 
 .select-cap-color-title {
   font-family: "Fredoka One", cursive;
-  font-size: clamp(40px, 9vw, 64px);
+  font-size: clamp(28px, 6vw, 40px);
   font-weight: 700;
   color: #004aad;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 3px;
-  margin-top: 60px;
+  letter-spacing: 2px;
+  margin-top: 10px;
+  margin-bottom: 5px;
   display: flex;
   flex-direction: column;
   gap: 0;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 
 .select-cap-color-title-line {
@@ -15099,21 +15427,38 @@ body {
   margin: 0 auto;
 }
 
+.select-cap-color-grid-two-columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.select-cap-color-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
 .select-cap-color-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .select-cap-color-image-wrapper {
   background: #e8e8e8;
-  border-radius: 15px;
-  padding: 20px;
+  border-radius: 12px;
+  padding: 12px;
   width: 100%;
-  max-width: 140px;
+  max-width: 110px;
   aspect-ratio: 1;
   display: flex;
   align-items: center;
@@ -15124,7 +15469,7 @@ body {
 }
 
 .select-cap-color-image-wrapper img {
-  width: 85%;
+  width: 80%;
   height: auto;
   max-width: 100%;
   object-fit: contain;
@@ -15144,16 +15489,16 @@ body {
 
 .select-cap-color-label {
   background: #ffffff;
-  border-radius: 12px;
-  padding: 10px 20px;
+  border-radius: 10px;
+  padding: 6px 12px;
   font-family: "Fredoka One", cursive;
-  font-size: clamp(18px, 3.5vw, 24px);
+  font-size: clamp(14px, 2.5vw, 18px);
   font-weight: 400;
   color: #004aad;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   text-align: center;
-  min-width: 100px;
+  min-width: 80px;
 }
 
 .select-cap-color-size-text {
@@ -15170,42 +15515,58 @@ body {
 /* Mobile Responsive */
 @media (max-width: 480px) {
   .select-cap-color-page {
-    padding: 15px;
-    padding-bottom: 100px;
-    gap: 20px;
+    padding: 10px;
+    padding-bottom: 70px;
+    gap: 10px;
+    justify-content: center;
   }
 
   .select-cap-color-back-button {
-    top: 15px;
-    right: 15px;
-    width: 40px;
-    height: 40px;
-    font-size: 24px;
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
   }
 
   .select-cap-color-title {
-    font-size: clamp(36px, 8vw, 48px);
-    margin-top: 50px;
-    letter-spacing: 2px;
+    font-size: clamp(24px, 5.5vw, 32px);
+    margin-top: 5px;
+    margin-bottom: 5px;
+    letter-spacing: 1.5px;
   }
 
   .select-cap-color-grid {
-    gap: 15px;
+    gap: 10px;
     max-width: 280px;
   }
 
+  .select-cap-color-grid-two-columns {
+    gap: 8px;
+    max-width: 320px;
+  }
+
+  .select-cap-color-column {
+    gap: 8px;
+  }
+
+  .select-cap-color-item {
+    gap: 4px;
+  }
+
   .select-cap-color-image-wrapper {
-    padding: 15px;
-    max-width: 120px;
+    padding: 10px;
+    max-width: 90px;
   }
 
   .select-cap-color-image-wrapper img {
-    width: 80%;
+    width: 75%;
   }
 
   .select-cap-color-label {
-    padding: 8px 16px;
-    font-size: 16px;
+    padding: 4px 10px;
+    font-size: 13px;
+    min-width: 70px;
   }
 
   .select-cap-color-size-text {
@@ -15344,6 +15705,13 @@ body {
   margin: 0 auto;
 }
 
+.select-shirt-color-size-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
 .select-shirt-color-size-button {
   background: #ffffff;
   border: 2px solid #004aad;
@@ -15357,8 +15725,17 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  flex: 1;
+  width: 100%;
   max-width: 180px;
+}
+
+.select-shirt-color-size-ld {
+  font-family: "Fredoka One", cursive;
+  font-size: clamp(14px, 2.5vw, 18px);
+  font-weight: 400;
+  color: #004aad;
+  text-align: center;
+  letter-spacing: 0.5px;
 }
 
 .select-shirt-color-size-button.selected {
@@ -15418,9 +15795,236 @@ body {
     max-width: 100%;
   }
 
+  .select-shirt-color-size-wrapper {
+    gap: 6px;
+  }
+
   .select-shirt-color-size-button {
     padding: 12px 30px;
     font-size: 18px;
     max-width: 150px;
+  }
+
+  .select-shirt-color-size-ld {
+    font-size: 13px;
+  }
+}
+
+/* Add On Patches Page */
+.add-on-patches-page {
+  min-height: 100vh;
+  background: rgb(246, 244, 239);
+  padding: 20px;
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.add-on-patches-back-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #ffffff;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #004aad;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+  line-height: 1;
+}
+
+.add-on-patches-back-button:hover {
+  background: #f0f0f0;
+  transform: rotate(90deg);
+}
+
+.add-on-patches-title {
+  font-family: "Fredoka One", cursive;
+  font-size: clamp(32px, 7vw, 48px);
+  font-weight: 700;
+  color: #004aad;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  line-height: 1.2;
+}
+
+.add-on-patches-title-line {
+  display: block;
+}
+
+.add-on-patches-container {
+  background: rgb(246, 244, 239);
+  border: 3px dashed #6b8e23;
+  border-radius: 30px;
+  padding: 30px 20px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.add-on-patches-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  max-width: 100%;
+  justify-items: stretch;
+  align-items: start;
+}
+
+.add-on-patches-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 80%;
+}
+
+.add-on-patches-image-wrapper {
+  width: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.add-on-patches-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: transparent;
+}
+
+.add-on-patches-quantity-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #2c2c2c;
+  border-radius: 8px;
+  padding: 8px;
+  width: 100%;
+  gap: 15px;
+}
+
+.add-on-patches-quantity-button {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+
+.add-on-patches-quantity-button:hover {
+  transform: scale(1.2);
+  color: #f0f0f0;
+}
+
+.add-on-patches-quantity-button:active {
+  transform: scale(0.9);
+}
+
+.add-on-patches-quantity-number {
+  color: #ffffff;
+  font-family: "Fredoka One", cursive;
+  font-size: 18px;
+  font-weight: 400;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .add-on-patches-page {
+    padding: 15px;
+    padding-bottom: 100px;
+    gap: 15px;
+  }
+
+  .add-on-patches-back-button {
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+  }
+
+  .add-on-patches-title {
+    font-size: clamp(28px, 6vw, 36px);
+    margin-top: 50px;
+    letter-spacing: 1.5px;
+  }
+
+  .add-on-patches-container {
+    padding: 20px 15px;
+    border-radius: 25px;
+    max-width: 100%;
+    max-height: 100%;
+    box-sizing: border-box;
+  }
+
+  .add-on-patches-grid {
+    gap: 5px;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .add-on-patches-item {
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .add-on-patches-quantity-selector {
+    padding: 6px;
+    gap: 12px;
+  }
+
+  .add-on-patches-quantity-button {
+    font-size: 18px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .add-on-patches-quantity-number {
+    font-size: 16px;
   }
 }

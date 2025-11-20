@@ -83,7 +83,9 @@ export default async function handler(req, res) {
       position, 
       price,
       orderSummary,
-      paymentImage 
+      paymentImage,
+      selectedPatches,
+      selectedHat // Hat data for bundle orders
     } = req.body;
 
     // Validate required fields
@@ -134,29 +136,44 @@ export default async function handler(req, res) {
     const spreadsheetId = process.env.GOOGLE_SHEETS_ID || "1Zvq4LzomnEwRCS_qOyMPGhzeKglHTXAWwmdJoFdNzqg";
     console.log("Spreadsheet ID:", spreadsheetId);
 
+    // Format selected patches as readable string (e.g., "num_1:2, laptop:1, flower_bouquet:3")
+    let patchesString = "";
+    if (selectedPatches && Array.isArray(selectedPatches) && selectedPatches.length > 0) {
+      patchesString = selectedPatches
+        .map((patch) => `${patch.patchId}:${patch.quantity}`)
+        .join(", ");
+    }
+
+    // Extract hat information for bundle orders
+    const hatType = selectedHat?.hatType || ""; // "hat" or "bucket_hat"
+    const hatColor = selectedHat?.color || ""; // Hat color
+
     // Prepare complete order data for Google Sheets
-    // Columns: Name, Phone, Address, Personality Type, Item Type, Color, Size, Template, Position, Price, Order Summary, Payment Image URL, Timestamp
+    // Columns: Timestamp, Name, Phone, Address, Personality Type, Item Type, Color, Size, Template, Position, Hat Type, Hat Color, Selected Patches, Order Summary, Price, Payment Image URL
     const values = [
       [
-        name || "",
-        phone || "",
-        address || "",
-        personalityType || "",
-        itemType || "",
-        color || "",
-        size || "",
-        template || "",
-        position || "",
-        price || 0,
-        orderSummary || "",
-        cloudinaryResponse.secure_url || "",
-        new Date().toISOString(),
+        new Date().toISOString(), // Timestamp
+        name || "", // Name
+        phone || "", // Phone
+        address || "", // Address
+        personalityType || "", // Personality Type
+        itemType || "", // Item Type
+        color || "", // Color
+        size || "", // Size
+        template || "", // Template
+        position || "", // Position
+        hatType || "", // Hat Type (empty if not bundle)
+        hatColor || "", // Hat Color (empty if not bundle)
+        patchesString || "", // Selected Patches
+        orderSummary || "", // Order Summary
+        price || 0, // Price
+        cloudinaryResponse.secure_url || "", // Payment Image URL
       ],
     ];
 
     const sheetsResponse = await sheets.spreadsheets.values.append({
       spreadsheetId: spreadsheetId,
-      range: "User Data!A:M", // Updated range to include all columns
+      range: "User Data!A:P", // Updated range to include hat columns (P = 16th column)
       valueInputOption: "RAW",
       requestBody: {
         values: values,

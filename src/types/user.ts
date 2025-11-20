@@ -10,7 +10,11 @@ export interface UserData {
   paymentInfo?: PaymentInfo;
   appointmentDate?: string;
   selectedOtherPatches?: string[];
-  selectedItem?: SelectedItem;
+  selectedItem?: SelectedItem; // For shirt (or cap if only cap selected)
+  selectedHat?: SelectedItem; // For cap (only used in bundle mode)
+  isBundle?: boolean; // True if user selected both shirt and cap
+  deliveryType?: "pickup" | "delivery";
+  selectedPatches?: Array<{ patchId: string; quantity: number }>;
 }
 
 export interface SelectedItem {
@@ -19,6 +23,7 @@ export interface SelectedItem {
   color?: string;
   size?: string;
   price?: number; // Price in thousands (e.g., 150 = 150k)
+  hatType?: "hat" | "bucket_hat"; // For caps: "hat" = baseball cap, "bucket_hat" = bucket hat
 }
 
 export interface TestResults {

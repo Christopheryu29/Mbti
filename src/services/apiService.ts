@@ -59,6 +59,8 @@ export class ApiService {
         price: orderData.price,
         orderSummary: orderData.orderSummary,
         paymentImage: imageBase64,
+        selectedPatches: orderData.selectedPatches || [],
+        selectedHat: orderData.selectedHat, // Include hat data
       };
 
       console.log("Sending payload to API:", {

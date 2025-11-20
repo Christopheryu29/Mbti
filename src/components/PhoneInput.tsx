@@ -10,7 +10,7 @@ const PhoneInput: React.FC = () => {
   const handleNext = () => {
     if (phone.trim()) {
       updateUserData({ phone: phone.trim() });
-      navigate("/address");
+      navigate("/delivery-option");
     }
   };
 
