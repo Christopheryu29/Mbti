@@ -4,7 +4,7 @@ import { useFlow } from "../contexts/FlowContext";
 
 const Page18: React.FC = () => {
   const navigate = useNavigate();
-  const { addTestAnswer } = useFlow();
+  const { addTestAnswer, hasTieAfterQuestion10, calculatePersonalityType, updateUserData } = useFlow();
   const [selectedOption, setSelectedOption] = useState<string>("");
 
   const handleNext = () => {
@@ -20,8 +20,18 @@ const Page18: React.FC = () => {
       const colorValue = optionToColorMap[selectedOption];
       addTestAnswer(10, colorValue); // Question 10
 
-      // Navigate to next page
-      navigate("/page19");
+      // Check if there's a tie after question 10
+      const hasTie = hasTieAfterQuestion10();
+      
+      if (hasTie) {
+        // If there's a tie, navigate to tie-breaker questions (Page19)
+        navigate("/page19");
+      } else {
+        // If there's no tie, calculate personality type immediately and go to result
+        const personalityType = calculatePersonalityType();
+        updateUserData({ personalityType });
+        navigate("/personality-result");
+      }
     }
   };
 
