@@ -107,6 +107,7 @@ const Payment: React.FC = () => {
           price: itemPrice,
           orderSummary: orderSummary,
           paymentImage: uploadedImage,
+          selectedPatches: userData.selectedPatches || [],
         };
 
         setProcessingStatus("Processing order...");

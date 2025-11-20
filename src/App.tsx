@@ -58,6 +58,7 @@ import ComingSoon from "./components/ComingSoon";
 import SelectItem from "./components/SelectItem";
 import SelectCapColor from "./components/SelectCapColor";
 import SelectShirtColor from "./components/SelectShirtColor";
+import AddOnPatches from "./components/AddOnPatches";
 import "./App.css";
 
 function App() {
@@ -155,6 +156,7 @@ function App() {
                 path="/select-shirt-color"
                 element={<SelectShirtColor />}
               />
+              <Route path="/add-on-patches" element={<AddOnPatches />} />
             </Routes>
           </div>
         </Router>

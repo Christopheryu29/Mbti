@@ -12,6 +12,7 @@ export interface UserData {
   selectedOtherPatches?: string[];
   selectedItem?: SelectedItem;
   deliveryType?: "pickup" | "delivery";
+  selectedPatches?: Array<{ patchId: string; quantity: number }>;
 }
 
 export interface SelectedItem {

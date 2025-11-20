@@ -19,6 +19,7 @@ export interface CompleteOrderData {
   price: number;
   orderSummary: string; // Formatted summary like "T-shirt Black S-M Sleeve Left"
   paymentImage: File;
+  selectedPatches?: Array<{ patchId: string; quantity: number }>; // Selected patches with quantities
 }
 
 export interface OrderResult {

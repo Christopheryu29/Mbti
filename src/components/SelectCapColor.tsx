@@ -40,7 +40,7 @@ const SelectCapColor: React.FC = () => {
           price: 75, // Cap is 75k
         },
       });
-      navigate("/phone");
+      navigate("/add-on-patches");
     }
   };
 
