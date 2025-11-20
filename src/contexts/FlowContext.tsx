@@ -12,6 +12,7 @@ interface FlowContextType {
   addTestAnswer: (questionNumber: number, answer: number) => void;
   calculatePersonalityType: () => string;
   calculatePersonalityTypeWithQ10: (question10Answer?: number) => string;
+  calculatePersonalityTypeWithTieBreakers: (question11Answer?: number, question12Answer?: number) => string;
   hasTieAfterQuestion10: (question10Answer?: number) => boolean;
   resetFlow: () => void;
 }
@@ -158,10 +159,82 @@ export const FlowProvider: React.FC<FlowProviderProps> = ({ children }) => {
     if (tiedColors.length > 1 && testAnswers.length >= 12) {
       for (let i = 10; i < Math.min(12, testAnswers.length); i++) {
         const answer = testAnswers[i];
-        if (answer === 0) scores.green += 2; // a) green
-        else if (answer === 1) scores.purple += 2; // b) purple
-        else if (answer === 2) scores.yellow += 2; // c) yellow
-        else if (answer === 3) scores.blue += 2; // d) blue
+        // Only process if answer is defined (not undefined)
+        if (answer !== undefined) {
+          if (answer === 0) scores.green += 2; // a) green
+          else if (answer === 1) scores.purple += 2; // b) purple
+          else if (answer === 2) scores.yellow += 2; // c) yellow
+          else if (answer === 3) scores.blue += 2; // d) blue
+        }
+      }
+    }
+
+    // Find the color with the highest score
+    const finalMaxScore = Math.max(
+      scores.green,
+      scores.purple,
+      scores.yellow,
+      scores.blue
+    );
+    const winner = Object.entries(scores).find(
+      ([, score]) => score === finalMaxScore
+    );
+
+    return winner ? winner[0] : "green"; // default to green if no clear winner
+  };
+
+  // Helper function to calculate personality type with tie-breaker answers passed directly
+  // This avoids React state update timing issues
+  const calculatePersonalityTypeWithTieBreakers = (
+    question11Answer?: number,
+    question12Answer?: number
+  ): string => {
+    const scores = { green: 0, purple: 0, yellow: 0, blue: 0 };
+
+    // Questions 1-10: 1 point each
+    for (let i = 0; i < Math.min(10, testAnswers.length); i++) {
+      const answer = testAnswers[i];
+      if (answer === 0) scores.green += 1; // a) green
+      else if (answer === 1) scores.purple += 1; // b) purple
+      else if (answer === 2) scores.yellow += 1; // c) yellow
+      else if (answer === 3) scores.blue += 1; // d) blue
+    }
+
+    // Check if there's a tie after questions 1-10
+    const maxScore = Math.max(
+      scores.green,
+      scores.purple,
+      scores.yellow,
+      scores.blue
+    );
+    const tiedColors = Object.entries(scores).filter(
+      ([, score]) => score === maxScore
+    );
+
+    // If there's a tie and we have tie-breaker answers, use them (2 points each)
+    if (tiedColors.length > 1) {
+      // Use question 11 answer if provided, otherwise try to get from state
+      const q11Answer = question11Answer !== undefined 
+        ? question11Answer 
+        : (testAnswers.length >= 11 ? testAnswers[10] : undefined);
+      
+      // Use question 12 answer if provided, otherwise try to get from state
+      const q12Answer = question12Answer !== undefined 
+        ? question12Answer 
+        : (testAnswers.length >= 12 ? testAnswers[11] : undefined);
+
+      if (q11Answer !== undefined) {
+        if (q11Answer === 0) scores.green += 2; // a) green
+        else if (q11Answer === 1) scores.purple += 2; // b) purple
+        else if (q11Answer === 2) scores.yellow += 2; // c) yellow
+        else if (q11Answer === 3) scores.blue += 2; // d) blue
+      }
+
+      if (q12Answer !== undefined) {
+        if (q12Answer === 0) scores.green += 2; // a) green
+        else if (q12Answer === 1) scores.purple += 2; // b) purple
+        else if (q12Answer === 2) scores.yellow += 2; // c) yellow
+        else if (q12Answer === 3) scores.blue += 2; // d) blue
       }
     }
 
@@ -202,6 +275,7 @@ export const FlowProvider: React.FC<FlowProviderProps> = ({ children }) => {
         addTestAnswer,
         calculatePersonalityType,
         calculatePersonalityTypeWithQ10,
+        calculatePersonalityTypeWithTieBreakers,
         hasTieAfterQuestion10,
         resetFlow,
       }}
