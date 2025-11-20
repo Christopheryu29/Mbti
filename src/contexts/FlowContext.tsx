@@ -11,6 +11,7 @@ interface FlowContextType {
   setTestAnswers: (answers: number[]) => void;
   addTestAnswer: (questionNumber: number, answer: number) => void;
   calculatePersonalityType: () => string;
+  hasTieAfterQuestion10: () => boolean;
   resetFlow: () => void;
 }
 
@@ -50,6 +51,33 @@ export const FlowProvider: React.FC<FlowProviderProps> = ({ children }) => {
     });
   };
 
+  // Helper function to check if there's a tie after questions 1-10
+  const hasTieAfterQuestion10 = (): boolean => {
+    const scores = { green: 0, purple: 0, yellow: 0, blue: 0 };
+
+    // Questions 1-10: 1 point each
+    for (let i = 0; i < Math.min(10, testAnswers.length); i++) {
+      const answer = testAnswers[i];
+      if (answer === 0) scores.green += 1; // a) green
+      else if (answer === 1) scores.purple += 1; // b) purple
+      else if (answer === 2) scores.yellow += 1; // c) yellow
+      else if (answer === 3) scores.blue += 1; // d) blue
+    }
+
+    // Check if there's a tie after questions 1-10
+    const maxScore = Math.max(
+      scores.green,
+      scores.purple,
+      scores.yellow,
+      scores.blue
+    );
+    const tiedColors = Object.entries(scores).filter(
+      ([, score]) => score === maxScore
+    );
+
+    return tiedColors.length > 1; // Return true if there's a tie
+  };
+
   const calculatePersonalityType = (): string => {
     const scores = { green: 0, purple: 0, yellow: 0, blue: 0 };
 
@@ -70,7 +98,7 @@ export const FlowProvider: React.FC<FlowProviderProps> = ({ children }) => {
       scores.blue
     );
     const tiedColors = Object.entries(scores).filter(
-      ([_, score]) => score === maxScore
+      ([, score]) => score === maxScore
     );
 
     // If there's a tie and we have questions 11-12, use them for tie-breaking (2 points each)
@@ -92,7 +120,7 @@ export const FlowProvider: React.FC<FlowProviderProps> = ({ children }) => {
       scores.blue
     );
     const winner = Object.entries(scores).find(
-      ([_, score]) => score === finalMaxScore
+      ([, score]) => score === finalMaxScore
     );
 
     return winner ? winner[0] : "green"; // default to green if no clear winner
@@ -120,6 +148,7 @@ export const FlowProvider: React.FC<FlowProviderProps> = ({ children }) => {
         setTestAnswers,
         addTestAnswer,
         calculatePersonalityType,
+        hasTieAfterQuestion10,
         resetFlow,
       }}
     >
