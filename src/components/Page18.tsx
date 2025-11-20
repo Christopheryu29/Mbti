@@ -4,7 +4,7 @@ import { useFlow } from "../contexts/FlowContext";
 
 const Page18: React.FC = () => {
   const navigate = useNavigate();
-  const { addTestAnswer, hasTieAfterQuestion10, calculatePersonalityType, updateUserData } = useFlow();
+  const { addTestAnswer, hasTieAfterQuestion10, calculatePersonalityTypeWithQ10, updateUserData } = useFlow();
   const [selectedOption, setSelectedOption] = useState<string>("");
 
   const handleNext = () => {
@@ -18,17 +18,20 @@ const Page18: React.FC = () => {
       };
 
       const colorValue = optionToColorMap[selectedOption];
+      
+      // Add the answer to state first
       addTestAnswer(10, colorValue); // Question 10
-
-      // Check if there's a tie after question 10
-      const hasTie = hasTieAfterQuestion10();
+      
+      // Check if there's a tie after question 10 (pass the answer directly to avoid async state issue)
+      const hasTie = hasTieAfterQuestion10(colorValue);
       
       if (hasTie) {
         // If there's a tie, navigate to tie-breaker questions (Page19)
         navigate("/page19");
       } else {
-        // If there's no tie, calculate personality type immediately and go to result
-        const personalityType = calculatePersonalityType();
+        // If there's no tie, calculate personality type immediately with the answer
+        // Use the helper function that accepts question 10 answer to avoid async state issues
+        const personalityType = calculatePersonalityTypeWithQ10(colorValue);
         updateUserData({ personalityType });
         navigate("/personality-result");
       }

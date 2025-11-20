@@ -11,7 +11,8 @@ interface FlowContextType {
   setTestAnswers: (answers: number[]) => void;
   addTestAnswer: (questionNumber: number, answer: number) => void;
   calculatePersonalityType: () => string;
-  hasTieAfterQuestion10: () => boolean;
+  calculatePersonalityTypeWithQ10: (question10Answer?: number) => string;
+  hasTieAfterQuestion10: (question10Answer?: number) => boolean;
   resetFlow: () => void;
 }
 
@@ -52,16 +53,29 @@ export const FlowProvider: React.FC<FlowProviderProps> = ({ children }) => {
   };
 
   // Helper function to check if there's a tie after questions 1-10
-  const hasTieAfterQuestion10 = (): boolean => {
+  // Optionally accepts question10Answer to include it in the calculation
+  const hasTieAfterQuestion10 = (question10Answer?: number): boolean => {
     const scores = { green: 0, purple: 0, yellow: 0, blue: 0 };
 
-    // Questions 1-10: 1 point each
-    for (let i = 0; i < Math.min(10, testAnswers.length); i++) {
+    // Questions 1-9: 1 point each (indices 0-8)
+    for (let i = 0; i < Math.min(9, testAnswers.length); i++) {
       const answer = testAnswers[i];
       if (answer === 0) scores.green += 1; // a) green
       else if (answer === 1) scores.purple += 1; // b) purple
       else if (answer === 2) scores.yellow += 1; // c) yellow
       else if (answer === 3) scores.blue += 1; // d) blue
+    }
+
+    // Add question 10 if provided, otherwise use from testAnswers if available
+    const q10Answer = question10Answer !== undefined 
+      ? question10Answer 
+      : (testAnswers.length >= 10 ? testAnswers[9] : undefined);
+    
+    if (q10Answer !== undefined) {
+      if (q10Answer === 0) scores.green += 1; // a) green
+      else if (q10Answer === 1) scores.purple += 1; // b) purple
+      else if (q10Answer === 2) scores.yellow += 1; // c) yellow
+      else if (q10Answer === 3) scores.blue += 1; // d) blue
     }
 
     // Check if there's a tie after questions 1-10
@@ -76,6 +90,45 @@ export const FlowProvider: React.FC<FlowProviderProps> = ({ children }) => {
     );
 
     return tiedColors.length > 1; // Return true if there's a tie
+  };
+
+  // Helper function to calculate personality type with optional question 10 answer
+  const calculatePersonalityTypeWithQ10 = (question10Answer?: number): string => {
+    const scores = { green: 0, purple: 0, yellow: 0, blue: 0 };
+
+    // Questions 1-9: 1 point each (indices 0-8)
+    for (let i = 0; i < Math.min(9, testAnswers.length); i++) {
+      const answer = testAnswers[i];
+      if (answer === 0) scores.green += 1; // a) green
+      else if (answer === 1) scores.purple += 1; // b) purple
+      else if (answer === 2) scores.yellow += 1; // c) yellow
+      else if (answer === 3) scores.blue += 1; // d) blue
+    }
+
+    // Add question 10 if provided, otherwise use from testAnswers if available
+    const q10Answer = question10Answer !== undefined 
+      ? question10Answer 
+      : (testAnswers.length >= 10 ? testAnswers[9] : undefined);
+    
+    if (q10Answer !== undefined) {
+      if (q10Answer === 0) scores.green += 1; // a) green
+      else if (q10Answer === 1) scores.purple += 1; // b) purple
+      else if (q10Answer === 2) scores.yellow += 1; // c) yellow
+      else if (q10Answer === 3) scores.blue += 1; // d) blue
+    }
+
+    // Find the color with the highest score (no tie-breaking needed if no tie)
+    const finalMaxScore = Math.max(
+      scores.green,
+      scores.purple,
+      scores.yellow,
+      scores.blue
+    );
+    const winner = Object.entries(scores).find(
+      ([, score]) => score === finalMaxScore
+    );
+
+    return winner ? winner[0] : "green"; // default to green if no clear winner
   };
 
   const calculatePersonalityType = (): string => {
@@ -148,6 +201,7 @@ export const FlowProvider: React.FC<FlowProviderProps> = ({ children }) => {
         setTestAnswers,
         addTestAnswer,
         calculatePersonalityType,
+        calculatePersonalityTypeWithQ10,
         hasTieAfterQuestion10,
         resetFlow,
       }}
