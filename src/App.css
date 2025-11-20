@@ -10557,6 +10557,15 @@ body {
   margin-bottom: 10px;
 }
 
+.payment-account {
+  font-family: "Fredoka One", cursive;
+  font-size: clamp(16px, 3.5vw, 20px);
+  color: #004aad;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
 .payment-note {
   font-family: "Fredoka One", cursive;
   font-size: clamp(14px, 3vw, 18px);
@@ -10804,6 +10813,10 @@ body {
 
   .payment-title {
     font-size: clamp(24px, 6vw, 36px);
+  }
+
+  .payment-account {
+    font-size: clamp(14px, 3vw, 18px);
   }
 
   .payment-note {

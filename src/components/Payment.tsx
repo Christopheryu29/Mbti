@@ -291,6 +291,7 @@ const Payment: React.FC = () => {
       {/* Header */}
       <div className="payment-header">
         <div className="payment-title">PAYMENT HERE</div>
+        <div className="payment-account">BCA 7772760003 Olivia Christy Gunawan</div>
         <div className="payment-note">NOTE TRANSFER: NAME_QUABUDZ</div>
       </div>
 
