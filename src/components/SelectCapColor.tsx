@@ -4,7 +4,7 @@ import { useFlow } from "../contexts/FlowContext";
 
 const SelectCapColor: React.FC = () => {
   const navigate = useNavigate();
-  const { updateUserData } = useFlow();
+  const { updateUserData, userData } = useFlow();
   const [selectedHatType, setSelectedHatType] = useState<"hat" | "bucket_hat" | null>(null);
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
 
@@ -32,20 +32,42 @@ const SelectCapColor: React.FC = () => {
 
   const handleNext = () => {
     if (selectedHatType && selectedColor) {
-      updateUserData({
-        selectedItem: {
-          type: "cap",
-          color: selectedColor,
-          hatType: selectedHatType,
-          price: 75, // Cap is 75k
-        },
-      });
+      const hatPrice = selectedHatType === "bucket_hat" ? 80 : 75;
+      
+      // Check if this is a bundle (shirt + cap) or only cap
+      if (userData.isBundle) {
+        // Bundle: Store cap in selectedHat (shirt is already in selectedItem)
+        updateUserData({
+          selectedHat: {
+            type: "cap",
+            color: selectedColor,
+            hatType: selectedHatType,
+            price: hatPrice,
+          },
+        });
+      } else {
+        // Only cap: Store in selectedItem
+        updateUserData({
+          selectedItem: {
+            type: "cap",
+            color: selectedColor,
+            hatType: selectedHatType,
+            price: hatPrice,
+          },
+        });
+      }
       navigate("/add-on-patches");
     }
   };
 
   const handleBack = () => {
-    navigate("/select-item");
+    if (userData.isBundle) {
+      // Bundle: Go back to design shirt
+      navigate("/design-shirt");
+    } else {
+      // Only cap: Go back to select item
+      navigate("/select-item");
+    }
   };
 
   const isSelected = (hatType: "hat" | "bucket_hat", color: string) => {

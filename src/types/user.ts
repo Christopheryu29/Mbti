@@ -10,7 +10,9 @@ export interface UserData {
   paymentInfo?: PaymentInfo;
   appointmentDate?: string;
   selectedOtherPatches?: string[];
-  selectedItem?: SelectedItem;
+  selectedItem?: SelectedItem; // For shirt (or cap if only cap selected)
+  selectedHat?: SelectedItem; // For cap (only used in bundle mode)
+  isBundle?: boolean; // True if user selected both shirt and cap
   deliveryType?: "pickup" | "delivery";
   selectedPatches?: Array<{ patchId: string; quantity: number }>;
 }

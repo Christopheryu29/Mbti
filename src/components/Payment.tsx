@@ -13,10 +13,85 @@ const Payment: React.FC = () => {
   const [processingStatus, setProcessingStatus] = useState<string>("");
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // Format order summary
+  // Pricing constants
+  const PRICES = {
+    tshirt: 129,
+    ringtee: 139,
+    bucketHat: 80,
+    cap: 75,
+    patch: 12,
+    bundlingDiscount: 10,
+  };
+
+  // Determine shirt type based on color
+  // Premium colors (nolly, wolly, tilly, velly) = Ringer Tee
+  // Regular colors (navy, black, white, grey) = T-shirt
+  const getShirtType = (color: string): "tshirt" | "ringtee" => {
+    const premiumColors = ["nolly", "wolly", "tilly", "velly"];
+    return premiumColors.includes(color) ? "ringtee" : "tshirt";
+  };
+
+  // Calculate item details and prices
+  const getOrderDetails = () => {
+    const details: Array<{ name: string; price: number }> = [];
+    const item = userData.selectedItem; // Shirt (or cap if only cap selected)
+    const hat = userData.selectedHat; // Hat (only in bundle mode)
+
+    // Add shirt if selected (in bundle or single shirt)
+    if (item?.type === "shirt") {
+      const shirtType = getShirtType(item.color || "");
+      const shirtName = shirtType === "ringtee" ? "RINGER TEE" : "T-SHIRT";
+      const shirtPrice = shirtType === "ringtee" ? PRICES.ringtee : PRICES.tshirt;
+      details.push({ name: shirtName, price: shirtPrice });
+    }
+
+    // Add hat if selected (in bundle mode, hat is in selectedHat; in single cap mode, cap is in selectedItem)
+    if (hat?.type === "cap") {
+      // Bundle mode: hat is in selectedHat
+      const hatName = hat.hatType === "bucket_hat" ? "BUCKET HAT" : "CAP";
+      const hatPrice = hat.hatType === "bucket_hat" ? PRICES.bucketHat : PRICES.cap;
+      details.push({ name: hatName, price: hatPrice });
+    } else if (item?.type === "cap") {
+      // Single cap mode: cap is in selectedItem
+      const hatName = item.hatType === "bucket_hat" ? "BUCKET HAT" : "CAP";
+      const hatPrice = item.hatType === "bucket_hat" ? PRICES.bucketHat : PRICES.cap;
+      details.push({ name: hatName, price: hatPrice });
+    }
+
+    // Add patches
+    if (userData.selectedPatches && userData.selectedPatches.length > 0) {
+      const totalPatches = userData.selectedPatches.reduce(
+        (sum, patch) => sum + patch.quantity,
+        0
+      );
+      if (totalPatches > 0) {
+        const patchPrice = totalPatches * PRICES.patch;
+        details.push({ name: "ADD ON PATCH", price: patchPrice });
+      }
+    }
+
+    return details;
+  };
+
+  // Check if bundling discount applies (shirt + hat)
+  const hasBundlingDiscount = () => {
+    // Bundle discount applies when user selected both shirt and cap
+    return userData.isBundle === true;
+  };
+
+  // Calculate total price
+  const calculateTotal = () => {
+    const details = getOrderDetails();
+    const subtotal = details.reduce((sum, item) => sum + item.price, 0);
+    const discount = hasBundlingDiscount() ? PRICES.bundlingDiscount : 0;
+    return subtotal - discount;
+  };
+
+  // Format order summary (for API)
   const getOrderSummary = () => {
-    const item = userData.selectedItem;
-    if (!item) return "";
+    const item = userData.selectedItem; // Shirt (or cap if only cap selected)
+    const hat = userData.selectedHat; // Hat (only in bundle mode)
+    const summaries: string[] = [];
 
     const colorLabels: { [key: string]: string } = {
       nolly: "Nolly",
@@ -42,16 +117,18 @@ const Payment: React.FC = () => {
       middle: "Middle",
     };
 
-    if (item.type === "shirt") {
+    // Add shirt summary
+    if (item?.type === "shirt") {
       const color = colorLabels[item.color || ""] || item.color || "";
       const size = item.size?.toUpperCase() || "";
       const template = templateLabels[userData.shirtDesign?.template || ""] || "";
       const position = positionLabels[userData.shirtDesign?.position || ""] || "";
 
-      let summary = `T-shirt ${color}`;
+      const shirtType = getShirtType(item.color || "");
+      const shirtName = shirtType === "ringtee" ? "Ringer Tee" : "T-shirt";
+      let summary = `${shirtName} ${color}`;
       if (size) summary += ` ${size}`;
       if (template && position) {
-        // Avoid showing "Middle Middle" - just show "Middle"
         if (template === position && template === "Middle") {
           summary += ` ${template}`;
         } else {
@@ -60,17 +137,23 @@ const Payment: React.FC = () => {
       } else if (template) {
         summary += ` ${template}`;
       }
-      return summary;
-    } else if (item.type === "cap") {
-      const color = colorLabels[item.color || ""] || item.color || "";
-      return `Cap ${color}`;
+      summaries.push(summary);
     }
 
-    return "";
-  };
+    // Add hat summary (in bundle mode, hat is in selectedHat; in single cap mode, cap is in selectedItem)
+    if (hat?.type === "cap") {
+      // Bundle mode: hat is in selectedHat
+      const color = colorLabels[hat.color || ""] || hat.color || "";
+      const hatName = hat.hatType === "bucket_hat" ? "Bucket Hat" : "Cap";
+      summaries.push(`${hatName} ${color}`);
+    } else if (item?.type === "cap") {
+      // Single cap mode: cap is in selectedItem
+      const color = colorLabels[item.color || ""] || item.color || "";
+      const hatName = item.hatType === "bucket_hat" ? "Bucket Hat" : "Cap";
+      summaries.push(`${hatName} ${color}`);
+    }
 
-  const getPrice = () => {
-    return userData.selectedItem?.price || 0;
+    return summaries.join(" + ");
   };
 
   const handleNext = async () => {
@@ -81,26 +164,30 @@ const Payment: React.FC = () => {
         setProcessingStatus("Preparing order data...");
 
         // Prepare order data
-        // For caps, use "cap" as template, for shirts use the selected template
-        const isCap = userData.selectedItem?.type === "cap";
-        const template = isCap 
-          ? "cap" 
-          : (userData.shirtDesign?.template || "middle");
-        const position = isCap 
-          ? undefined 
-          : userData.shirtDesign?.position;
+        // For shirts use the selected template, for hats use "cap"
+        const hasShirt = userData.selectedItem?.type === "shirt";
+        const template = hasShirt 
+          ? (userData.shirtDesign?.template || "middle")
+          : "cap";
+        const position = hasShirt 
+          ? userData.shirtDesign?.position
+          : undefined;
 
         // Get order summary
         const orderSummary = getOrderSummary();
-        const itemPrice = userData.selectedItem?.price || 0;
+        const itemPrice = calculateTotal();
+
+        // Determine primary item type and color (shirt takes precedence, or cap if only cap)
+        const itemType = userData.selectedItem?.type || "shirt";
+        const color = userData.selectedItem?.color || "";
 
         const orderData: CompleteOrderData = {
           name: userData.name,
           phone: userData.phone,
           address: userData.address,
           personalityType: userData.personalityType || "",
-          itemType: userData.selectedItem?.type || "shirt",
-          color: userData.selectedItem?.color || "",
+          itemType: itemType,
+          color: color,
           size: userData.selectedItem?.size || undefined,
           template: template,
           position: position,
@@ -108,6 +195,7 @@ const Payment: React.FC = () => {
           orderSummary: orderSummary,
           paymentImage: uploadedImage,
           selectedPatches: userData.selectedPatches || [],
+          selectedHat: userData.selectedHat, // Include hat data (only in bundle mode)
         };
 
         setProcessingStatus("Processing order...");
@@ -119,11 +207,11 @@ const Payment: React.FC = () => {
           setProcessingStatus("Order processed successfully!");
 
           // Update user data with the results
-          const itemPrice = userData.selectedItem?.price || 0;
+          const finalPrice = calculateTotal();
           updateUserData({
             paymentInfo: {
               method: "image_upload",
-              amount: itemPrice,
+              amount: finalPrice,
               image: uploadedImage,
               imageUrl: result.paymentImageUrl,
             },
@@ -169,16 +257,33 @@ const Payment: React.FC = () => {
     <div className="payment-template">
       {/* Header */}
       <div className="payment-header">
-        <div className="payment-subtitle">PLEASE SUBMIT</div>
         <div className="payment-title">PAYMENT HERE</div>
+        <div className="payment-note">NOTE TRANSFER: NAME_QUABUDZ</div>
       </div>
 
-      {/* Order Summary */}
+      {/* Details Section */}
       {userData.selectedItem && (
-        <div className="order-summary-section">
-          <div className="order-summary-title">ORDER SUMMARY</div>
-          <div className="order-summary-item">{getOrderSummary()}</div>
-          <div className="order-summary-price">{getPrice()}K</div>
+        <div className="payment-details-section">
+          <div className="payment-details-title">DETAILS</div>
+          <div className="payment-details-list">
+            {getOrderDetails().map((detail, index) => (
+              <div key={index} className="payment-details-item">
+                <span className="payment-details-name">{detail.name}</span>
+                <span className="payment-details-price">{detail.price}K</span>
+              </div>
+            ))}
+            {hasBundlingDiscount() && (
+              <div className="payment-details-item payment-details-discount">
+                <span className="payment-details-name">DISC 10%*</span>
+                <span className="payment-details-price">-{PRICES.bundlingDiscount}K</span>
+              </div>
+            )}
+          </div>
+          <div className="payment-details-divider"></div>
+          <div className="payment-details-total">
+            <span className="payment-details-total-label">TOTAL</span>
+            <span className="payment-details-total-price">{calculateTotal()}K</span>
+          </div>
         </div>
       )}
 

@@ -84,7 +84,8 @@ export default async function handler(req, res) {
       price,
       orderSummary,
       paymentImage,
-      selectedPatches 
+      selectedPatches,
+      selectedHat // Hat data for bundle orders
     } = req.body;
 
     // Validate required fields
@@ -143,30 +144,36 @@ export default async function handler(req, res) {
         .join(", ");
     }
 
+    // Extract hat information for bundle orders
+    const hatType = selectedHat?.hatType || ""; // "hat" or "bucket_hat"
+    const hatColor = selectedHat?.color || ""; // Hat color
+
     // Prepare complete order data for Google Sheets
-    // Columns: Name, Phone, Address, Personality Type, Item Type, Color, Size, Template, Position, Price, Order Summary, Payment Image URL, Selected Patches, Timestamp
+    // Columns: Timestamp, Name, Phone, Address, Personality Type, Item Type, Color, Size, Template, Position, Hat Type, Hat Color, Selected Patches, Order Summary, Price, Payment Image URL
     const values = [
       [
-        name || "",
-        phone || "",
-        address || "",
-        personalityType || "",
-        itemType || "",
-        color || "",
-        size || "",
-        template || "",
-        position || "",
-        price || 0,
-        orderSummary || "",
-        cloudinaryResponse.secure_url || "",
-        patchesString || "",
-        new Date().toISOString(),
+        new Date().toISOString(), // Timestamp
+        name || "", // Name
+        phone || "", // Phone
+        address || "", // Address
+        personalityType || "", // Personality Type
+        itemType || "", // Item Type
+        color || "", // Color
+        size || "", // Size
+        template || "", // Template
+        position || "", // Position
+        hatType || "", // Hat Type (empty if not bundle)
+        hatColor || "", // Hat Color (empty if not bundle)
+        patchesString || "", // Selected Patches
+        orderSummary || "", // Order Summary
+        price || 0, // Price
+        cloudinaryResponse.secure_url || "", // Payment Image URL
       ],
     ];
 
     const sheetsResponse = await sheets.spreadsheets.values.append({
       spreadsheetId: spreadsheetId,
-      range: "User Data!A:N", // Updated range to include patches column (N = 14th column)
+      range: "User Data!A:P", // Updated range to include hat columns (P = 16th column)
       valueInputOption: "RAW",
       requestBody: {
         values: values,
