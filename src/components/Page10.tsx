@@ -11,10 +11,10 @@ const Page10: React.FC = () => {
     if (selectedOption) {
       // Map options to color values (a=0, b=1, c=2, d=3)
       const optionToColorMap: { [key: string]: number } = {
-        "chill + journaling": 0, // a) green
-        "watch science": 1, // b) purple
-        "random road trip": 2, // c) yellow
-        "helping friends / fam": 3, // d) blue
+        "chill + recharge": 0, // a) green
+        "learn something new": 1, // b) purple
+        "go out & explore": 2, // c) yellow
+        "connect with people": 3, // d) blue
       };
 
       const colorValue = optionToColorMap[selectedOption];
@@ -30,10 +30,10 @@ const Page10: React.FC = () => {
   };
 
   const options = [
-    "chill + journaling",
-    "watch science",
-    "random road trip",
-    "helping friends / fam",
+    "chill + recharge",
+    "learn something new",
+    "go out & explore",
+    "connect with people",
   ];
 
   return (
