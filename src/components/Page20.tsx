@@ -51,7 +51,11 @@ const Page20: React.FC = () => {
       <div className="page20-step-indicator">12</div>
 
       {/* Main question */}
-      <div className="page20-question">IF YOU'RE LEADING A TEAM, YOU...</div>
+      <div className="page20-question">
+        <div className="page20-question-line">IF YOU'RE</div>
+        <div className="page20-question-line">LEADING A</div>
+        <div className="page20-question-line">TEAM, YOU...</div>
+      </div>
 
       {/* Team leader characters */}
       <div className="page20-characters">

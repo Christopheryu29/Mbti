@@ -157,8 +157,35 @@ const Payment: React.FC = () => {
   };
 
   const handleNext = async () => {
-    if (uploadedImage && userData.personalityType) {
-      setIsProcessing(true);
+    // Validate required fields
+    if (!uploadedImage) {
+      alert("Please upload a payment image");
+      return;
+    }
+
+    if (!userData.personalityType) {
+      alert("Personality type is missing. Please complete the quiz first.");
+      return;
+    }
+
+    if (!userData.name) {
+      alert("Name is missing. Please enter your name.");
+      return;
+    }
+
+    if (!userData.phone) {
+      alert("Phone number is missing. Please enter your phone number.");
+      return;
+    }
+
+    // Ensure address is set (for pickup orders, it should be "PICK UP")
+    const address = userData.address || (userData.deliveryType === "pickup" ? "PICK UP" : "");
+    if (!address) {
+      alert("Address is missing. Please enter your address or select pickup.");
+      return;
+    }
+
+    setIsProcessing(true);
 
       try {
         setProcessingStatus("Preparing order data...");
@@ -184,7 +211,7 @@ const Payment: React.FC = () => {
         const orderData: CompleteOrderData = {
           name: userData.name,
           phone: userData.phone,
-          address: userData.address,
+          address: address,
           personalityType: userData.personalityType || "",
           itemType: itemType,
           color: color,
@@ -227,14 +254,20 @@ const Payment: React.FC = () => {
         }
       } catch (error) {
         console.error("Error processing order:", error);
-        setProcessingStatus("Error occurred during processing");
-        alert(
-          "An error occurred while processing your order. Please try again."
-        );
+        
+        let errorMessage = "An error occurred while processing your order. Please try again.";
+        
+        if (error instanceof Error) {
+          errorMessage = error.message || errorMessage;
+        } else if (typeof error === "string") {
+          errorMessage = error;
+        }
+        
+        setProcessingStatus(`Error: ${errorMessage}`);
+        alert(`Error: ${errorMessage}\n\nPlease check your connection and try again.`);
       } finally {
         setIsProcessing(false);
       }
-    }
   };
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -316,7 +349,9 @@ const Payment: React.FC = () => {
 
       {/* Processing Status */}
       {processingStatus && (
-        <div className="processing-status">{processingStatus}</div>
+        <div className={`processing-status ${processingStatus.toLowerCase().includes("error") ? "error" : ""}`}>
+          {processingStatus}
+        </div>
       )}
 
       {/* NEXT Button */}
