@@ -77,12 +77,52 @@ export class ApiService {
       });
 
       if (!response.ok) {
-        const errorText = await response.text();
+        let errorMessage = "Failed to process order";
+        const contentType = response.headers.get("content-type");
+        
+        try {
+          if (contentType && contentType.includes("application/json")) {
+            const errorData = await response.json();
+            errorMessage = errorData.error || errorData.message || errorMessage;
+            if (errorData.details) {
+              errorMessage += `: ${errorData.details}`;
+            }
+          } else {
+            // If response is not JSON, try to get text
+            const errorText = await response.text();
+            if (errorText) {
+              // Try to parse as JSON if it looks like JSON
+              try {
+                const parsed = JSON.parse(errorText);
+                errorMessage = parsed.error || parsed.message || errorText;
+              } catch {
+                errorMessage = errorText;
+              }
+            } else {
+              errorMessage = `Server error: ${response.status} ${response.statusText}`;
+            }
+          }
+        } catch (e) {
+          // If all parsing fails, use status-based message
+          errorMessage = `Server error: ${response.status} ${response.statusText || "Unknown error"}`;
+          if (response.status === 400) {
+            errorMessage = "Bad request: Please check all required fields are filled correctly.";
+          } else if (response.status === 500) {
+            errorMessage = "Server error: Please try again later.";
+          } else if (response.status === 404) {
+            errorMessage = "API endpoint not found. Please contact support.";
+          }
+        }
+        
         logError(
-          `Backend server error: ${errorText}`,
+          `Backend server error (${response.status}): ${errorMessage}`,
           "ApiService.processOrder"
         );
-        return this.processOrderFallback(orderData);
+        
+        return {
+          success: false,
+          error: errorMessage,
+        };
       }
 
       const result = await response.json();
@@ -94,7 +134,27 @@ export class ApiService {
       };
     } catch (error) {
       logError(error, "ApiService.processOrder");
-      return this.processOrderFallback(orderData);
+      
+      // Check if it's a network error
+      if (error instanceof TypeError && error.message.includes("fetch")) {
+        return {
+          success: false,
+          error: "Network error: Unable to connect to server. Please check your internet connection and try again.",
+        };
+      }
+      
+      // Check if it's a timeout or other fetch error
+      if (error instanceof Error) {
+        return {
+          success: false,
+          error: `Request failed: ${error.message}`,
+        };
+      }
+      
+      return {
+        success: false,
+        error: "An unexpected error occurred while processing your order. Please try again.",
+      };
     }
   }
 

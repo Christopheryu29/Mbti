@@ -9,7 +9,10 @@ const DeliveryOption: React.FC = () => {
 
   const handlePickup = () => {
     setSelectedOption("pickup");
-    updateUserData({ deliveryType: "pickup" });
+    updateUserData({ 
+      deliveryType: "pickup",
+      address: "PICK UP" // Set default address for pickup orders
+    });
     navigate("/payment");
   };
 
