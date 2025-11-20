@@ -4671,6 +4671,7 @@ body {
   justify-content: center;
   margin: 40px 0;
   position: relative;
+  animation: fadeInScale 0.8s ease-out 0.6s both;
 }
 
 /* Character image styles */
@@ -4678,6 +4679,7 @@ body {
   width: clamp(200px, 40vw, 400px);
   height: auto;
   max-width: 400px;
+  animation: bounceInUp 0.8s ease-out 0.7s both;
 }
 
 .adventurer-blob {
@@ -5025,9 +5027,14 @@ body {
     align-self: flex-end;
   }
 
+  .page16-character {
+    animation: fadeInScale 0.8s ease-out 0.6s both;
+  }
+
   .page16-character-img {
     width: 120px;
     margin: 0 0 0 0;
+    animation: bounceInUp 0.8s ease-out 0.7s both;
   }
 
   .adventurer-blob {
@@ -5333,6 +5340,7 @@ body {
   bottom: 120px;
   right: 20px;
   z-index: 5;
+  animation: fadeInScale 0.8s ease-out 0.6s both;
 }
 
 /* Character image styles */
@@ -5340,6 +5348,7 @@ body {
   width: clamp(80px, 15vw, 120px);
   height: auto;
   max-width: 120px;
+  animation: bounceInUp 0.8s ease-out 0.7s both;
 }
 
 .detective-blob {
@@ -5507,10 +5516,12 @@ body {
     bottom: 210px;
     right: -20px;
     z-index: 5;
+    animation: fadeInScale 0.8s ease-out 0.6s both;
   }
 
   .page17-character-img {
     width: 350px;
+    animation: bounceInUp 0.8s ease-out 0.7s both;
   }
 
   .detective-blob {
@@ -6446,6 +6457,7 @@ body {
   right: 20px;
   z-index: 5;
   pointer-events: none;
+  animation: fadeInScale 0.8s ease-out 0.6s both;
 }
 
 /* Character image styles */
@@ -6453,6 +6465,7 @@ body {
   width: clamp(80px, 15vw, 120px);
   height: auto;
   max-width: 120px;
+  animation: bounceInUp 0.8s ease-out 0.7s both;
 }
 
 .curious-blob {
@@ -6661,11 +6674,13 @@ body {
     right: -90px;
     z-index: 5;
     pointer-events: none;
+    animation: fadeInScale 0.8s ease-out 0.6s both;
   }
 
   .page19-character-img {
     width: 400px !important;
     max-width: 400px !important;
+    animation: bounceInUp 0.8s ease-out 0.7s both;
   }
 
   .curious-blob {
