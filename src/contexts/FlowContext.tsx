@@ -125,11 +125,17 @@ export const FlowProvider: React.FC<FlowProviderProps> = ({ children }) => {
       scores.yellow,
       scores.blue
     );
-    const winner = Object.entries(scores).find(
+    const tiedWinners = Object.entries(scores).filter(
       ([, score]) => score === finalMaxScore
     );
 
-    return winner ? winner[0] : "green"; // default to green if no clear winner
+    // If there's a tie, choose the first one in a consistent order
+    // Order: green, purple, yellow, blue
+    if (tiedWinners.length > 0) {
+      return tiedWinners[0][0];
+    }
+
+    return "green"; // default to green if no winner found
   };
 
   const calculatePersonalityType = (): string => {
@@ -176,11 +182,17 @@ export const FlowProvider: React.FC<FlowProviderProps> = ({ children }) => {
       scores.yellow,
       scores.blue
     );
-    const winner = Object.entries(scores).find(
+    const tiedWinners = Object.entries(scores).filter(
       ([, score]) => score === finalMaxScore
     );
 
-    return winner ? winner[0] : "green"; // default to green if no clear winner
+    // If there's still a tie after tie-breakers, choose the first one in a consistent order
+    // Order: green, purple, yellow, blue
+    if (tiedWinners.length > 0) {
+      return tiedWinners[0][0];
+    }
+
+    return "green"; // default to green if no winner found
   };
 
   // Helper function to calculate personality type with tie-breaker answers passed directly
@@ -245,11 +257,17 @@ export const FlowProvider: React.FC<FlowProviderProps> = ({ children }) => {
       scores.yellow,
       scores.blue
     );
-    const winner = Object.entries(scores).find(
+    const tiedWinners = Object.entries(scores).filter(
       ([, score]) => score === finalMaxScore
     );
 
-    return winner ? winner[0] : "green"; // default to green if no clear winner
+    // If there's still a tie after tie-breakers, choose the first one in a consistent order
+    // Order: green, purple, yellow, blue
+    if (tiedWinners.length > 0) {
+      return tiedWinners[0][0];
+    }
+
+    return "green"; // default to green if no winner found
   };
 
   const resetFlow = () => {
